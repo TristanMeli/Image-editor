@@ -28,5 +28,15 @@ namespace ImageEditing
             }
         }
 
+        private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            dlg.Title = "Scegli l'immagne";
+            dlg.Filter = "all files (*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(dlg.FileName);
+            }
+        }
     }
 }
