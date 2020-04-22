@@ -38,5 +38,12 @@ namespace ImageEditing
                 pictureBox1.Image = Image.FromFile(dlg.FileName);
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Matita.ImageLocation = "immagini/strumenti/Selected_Matita.png";
+            Matita.BorderStyle = BorderStyle.FixedSingle;
+            //aForge
+        }
     }
 }
