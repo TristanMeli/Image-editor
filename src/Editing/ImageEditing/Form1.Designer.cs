@@ -43,6 +43,9 @@
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centeredToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stretchedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -73,7 +76,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(685, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(805, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -90,6 +93,7 @@
             // 
             this.caricaImmagineToolStripMenuItem.Name = "caricaImmagineToolStripMenuItem";
             this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.caricaImmagineToolStripMenuItem.Text = "Carica";
             this.caricaImmagineToolStripMenuItem.Click += new System.EventHandler(this.caricaImmagineToolStripMenuItem_Click);
             // 
@@ -97,6 +101,7 @@
             // 
             this.salvaToolStripMenuItem.Name = "salvaToolStripMenuItem";
             this.salvaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.salvaToolStripMenuItem.Text = "Salva";
             // 
             // Matita
@@ -104,6 +109,7 @@
             this.Matita.Image = ((System.Drawing.Image)(resources.GetObject("Matita.Image")));
             this.Matita.Location = new System.Drawing.Point(0, 22);
             this.Matita.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Matita.Margin = new System.Windows.Forms.Padding(2);
             this.Matita.Name = "Matita";
             this.Matita.Size = new System.Drawing.Size(32, 33);
             this.Matita.TabIndex = 2;
@@ -115,6 +121,7 @@
             this.Pennarello.BackColor = System.Drawing.Color.White;
             this.Pennarello.Location = new System.Drawing.Point(35, 22);
             this.Pennarello.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Pennarello.Margin = new System.Windows.Forms.Padding(2);
             this.Pennarello.Name = "Pennarello";
             this.Pennarello.Size = new System.Drawing.Size(32, 33);
             this.Pennarello.TabIndex = 3;
@@ -125,6 +132,7 @@
             this.Riempi.BackColor = System.Drawing.Color.White;
             this.Riempi.Location = new System.Drawing.Point(70, 22);
             this.Riempi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Riempi.Margin = new System.Windows.Forms.Padding(2);
             this.Riempi.Name = "Riempi";
             this.Riempi.Size = new System.Drawing.Size(32, 33);
             this.Riempi.TabIndex = 4;
@@ -135,6 +143,7 @@
             this.Spray.BackColor = System.Drawing.Color.White;
             this.Spray.Location = new System.Drawing.Point(105, 22);
             this.Spray.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Spray.Margin = new System.Windows.Forms.Padding(2);
             this.Spray.Name = "Spray";
             this.Spray.Size = new System.Drawing.Size(32, 33);
             this.Spray.TabIndex = 5;
@@ -145,6 +154,7 @@
             this.Ritaglia.BackColor = System.Drawing.Color.White;
             this.Ritaglia.Location = new System.Drawing.Point(140, 22);
             this.Ritaglia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Ritaglia.Margin = new System.Windows.Forms.Padding(2);
             this.Ritaglia.Name = "Ritaglia";
             this.Ritaglia.Size = new System.Drawing.Size(32, 33);
             this.Ritaglia.TabIndex = 6;
@@ -180,6 +190,32 @@
             this.stretchedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stretchedToolStripMenuItem.Text = "Stretched";
             this.stretchedToolStripMenuItem.Click += new System.EventHandler(this.stretchedToolStripMenuItem_Click);
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(556, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 58);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "taglia";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Enabled = false;
+            this.label1.Location = new System.Drawing.Point(559, 134);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "taglia";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(597, 134);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(70, 20);
+            this.textBox1.TabIndex = 9;
             // 
             // Form1
             // 
@@ -188,6 +224,10 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(685, 389);
+            this.ClientSize = new System.Drawing.Size(805, 526);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Ritaglia);
             this.Controls.Add(this.Spray);
             this.Controls.Add(this.Riempi);
@@ -229,6 +269,9 @@
         private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem centeredToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stretchedToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
