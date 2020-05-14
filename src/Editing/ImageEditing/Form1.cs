@@ -52,12 +52,25 @@ namespace ImageEditing
             var dlg = new OpenFileDialog();
             Image newImage = Image.FromFile(dlg.FileName);
 
-            float x = 100.0F;
-            float y = 100.0F;
+            float x = 0.0F;
+            float w = 0.0F;
+            float a = 0.0F;
+            float y = 0.0F;
 
-            RectangleF A = new RectangleF(50.0F, 50.0F, 150.0F, 150.0F);
+            label1.Text = "dimenzioni per l'asse x";
+            x= float.Parse(textBox1.Text);
+            
+            label1.Text = "dimenzioni per l'asse y";
+            y = float.Parse(textBox1.Text);
+
+            label1.Text = "dimenzioni per l'altezza";
+            a = float.Parse(textBox1.Text);
+
+            label1.Text = "dimenzioni per la larghezza";
+            w = float.Parse(textBox1.Text);
+
+            RectangleF A = new RectangleF(x,y,w,a);
             GraphicsUnit h = GraphicsUnit.Pixel;
-
 
             e.Graphics.DrawImage(newImage, x, y, A, h);
 
