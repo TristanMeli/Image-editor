@@ -42,11 +42,24 @@ namespace ImageEditing
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Matita.ImageLocation = "immagini/strumenti/Selected_Matita.png";
             Matita.BorderStyle = BorderStyle.FixedSingle;
             //aForge
         }
 
+        private void normalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
+        }
+
+        private void centeredToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+        }
+
+        private void stretchedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
         private void button1_Click(object sender, PaintEventArgs e)
         {
             var dlg = new OpenFileDialog();

@@ -465,20 +465,20 @@ namespace FiltersDemo
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(6, 5);
+            this.pictureBox.Location = new System.Drawing.Point(7, 6);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(530, 315);
+            this.pictureBox.Size = new System.Drawing.Size(528, 313);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
-           
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
             this.ClientSize = new System.Drawing.Size(542, 325);
             this.Controls.Add(this.pictureBox);
             this.Menu = this.mainMenu;
-            this.MinimumSize = new System.Drawing.Size(320, 240);
+            this.MinimumSize = new System.Drawing.Size(384, 277);
             this.Name = "MainForm";
             this.Text = "Image Processing filters demo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -854,6 +854,9 @@ namespace FiltersDemo
             textureFiltersItem.Checked = true;
         }
 
-       
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
