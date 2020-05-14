@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ImageEditing
 {
     public partial class Form1 : Form
@@ -41,9 +42,38 @@ namespace ImageEditing
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Matita.ImageLocation = "immagini/strumenti/Selected_Matita.png";
             Matita.BorderStyle = BorderStyle.FixedSingle;
             //aForge
+        }
+
+        private void normalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
+        }
+
+        private void centeredToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+        }
+
+        private void stretchedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+        private void button1_Click(object sender, PaintEventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            Image newImage = Image.FromFile(dlg.FileName);
+
+            float x = 100.0F;
+            float y = 100.0F;
+
+            RectangleF A = new RectangleF(50.0F, 50.0F, 150.0F, 150.0F);
+            GraphicsUnit h = GraphicsUnit.Pixel;
+
+
+            e.Graphics.DrawImage(newImage, x, y, A, h);
+
         }
     }
 }
