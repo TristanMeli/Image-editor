@@ -45,5 +45,20 @@ namespace ImageEditing
             Matita.BorderStyle = BorderStyle.FixedSingle;
             //aForge
         }
+
+        private void normalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
+        }
+
+        private void centeredToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+        }
+
+        private void stretchedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
     }
 }
