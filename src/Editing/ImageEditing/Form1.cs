@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +28,12 @@ namespace ImageEditing
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
+
+            Panel_Salva.Location = new Point(371, 332);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -104,9 +109,23 @@ namespace ImageEditing
 
         private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Random r = new Random();
-            pictureBox1.Image.Save($"ImageEditing{r.Next(10000)}");
+            Panel_Salva.Visible = true;
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string nome = textBox2.Text;
+            textBox2.Clear();
+            if (File.Exists(nome + "Png"))
+            {
+                MessageBox.Show("Nome gia usato");
+                Panel_Salva.Visible = false;
+                return;
+            }               
+            pictureBox1.Image.Save(nome + ".Png", ImageFormat.Png);
             MessageBox.Show("Immagine salvata");
+            Panel_Salva.Visible = false;
         }
        
     }
