@@ -17,6 +17,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using AForge;
+using AForge.Imaging;
+using AForge.Imaging.Filters;
+using AForge.Imaging.Textures;
 using System.Drawing.Imaging;
 using System.Collections;
 
