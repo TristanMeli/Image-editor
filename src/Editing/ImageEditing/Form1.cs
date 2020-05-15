@@ -11,10 +11,10 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
-//using AForge;
-//using AForge.Imaging;
-//using AForge.Imaging.Filters;
-//using AForge.Imaging.Textures;
+using AForge;
+using AForge.Imaging;
+using AForge.Imaging.Filters;
+using AForge.Imaging.Textures;
 
 
 
@@ -45,13 +45,13 @@ namespace ImageEditing
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //var dlg = new OpenFileDialog();
-            //dlg.Title = "Scegli l'immagine";
-            //dlg.Filter = "all files (*.*)|*.*";
-            //if (dlg.ShowDialog() == DialogResult.OK)
-            //{
-            //    pictureBox1.Image = Image.FromFile(dlg.FileName);
-            //}
+            var dlg = new OpenFileDialog();
+            dlg.Title = "Scegli l'immagine";
+            dlg.Filter = "all files (*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+            }
         }
 
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,6 +63,7 @@ namespace ImageEditing
             {
                 pictureBox1.Image = Image.FromFile(dlg.FileName);
                 //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
+                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
             }
         }
 
@@ -103,7 +104,7 @@ namespace ImageEditing
         private void button1_Click(object sender, PaintEventArgs e)
         {
             var dlg = new OpenFileDialog();
-            Image newImage = Image.FromFile(dlg.FileName);
+            System.Drawing.Image newImage = System.Drawing.Image.FromFile(dlg.FileName);
 
             float x = 0.0F;
             float w = 0.0F;
