@@ -11,6 +11,11 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
+using AForge;
+using AForge.Imaging;
+using AForge.Imaging.Filters;
+using AForge.Imaging.Textures;
+
 
 
 
