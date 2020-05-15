@@ -64,8 +64,11 @@ namespace ImageEditing
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            Zoom.BorderStyle = default;
             Matita.BorderStyle = BorderStyle.FixedSingle;
-            //aForge
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = default;
+            Riempi.BorderStyle = default;
         }
 
         private void normalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,6 +134,41 @@ namespace ImageEditing
             MessageBox.Show("Immagine salvata");
             Panel_Salva.Visible = false;
         }
-       
+
+        private void Riempi_Click(object sender, EventArgs e)
+        {
+            Zoom.BorderStyle = default;
+            Matita.BorderStyle = default;
+            Gomma.BorderStyle = BorderStyle.FixedSingle;
+            Testo.BorderStyle = default;
+            Riempi.BorderStyle = default;
+        }
+
+        private void Zoom_Click(object sender, EventArgs e)
+        {
+            Zoom.BorderStyle=BorderStyle.FixedSingle;
+            Matita.BorderStyle = default;
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = default;
+            Riempi.BorderStyle = default;
+        }
+
+        private void Testo_Click(object sender, EventArgs e)
+        {
+            Zoom.BorderStyle = default;
+            Matita.BorderStyle = default;
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = BorderStyle.FixedSingle;
+            Riempi.BorderStyle = default;
+        }
+
+        private void Riempi_Click_1(object sender, EventArgs e)
+        {
+            Zoom.BorderStyle = default;
+            Matita.BorderStyle = default;
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = default;
+            Riempi.BorderStyle = BorderStyle.FixedSingle;
+        }
     }
 }
