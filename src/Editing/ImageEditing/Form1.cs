@@ -15,6 +15,7 @@ using System.Windows.Forms;
 
 
 
+
 namespace ImageEditing
 {
     public partial class Form1 : Form
@@ -156,6 +157,13 @@ namespace ImageEditing
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
             Riempi.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        // On Filters->Color filtering
+        private void colorFiltersItem_Click(object sender, System.EventArgs e)
+        {
+            ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
+            colorFiltersItem.Checked = true;
         }
     }
 }
