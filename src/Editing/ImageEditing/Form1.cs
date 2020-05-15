@@ -11,10 +11,10 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
-using AForge;
-using AForge.Imaging;
-using AForge.Imaging.Filters;
-using AForge.Imaging.Textures;
+//using AForge;
+//using AForge.Imaging;
+//using AForge.Imaging.Filters;
+//using AForge.Imaging.Textures;
 
 
 
@@ -36,7 +36,7 @@ namespace ImageEditing
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagne";
+            dlg.Title = "Scegli l'immagine";
             dlg.Filter = "all files (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
