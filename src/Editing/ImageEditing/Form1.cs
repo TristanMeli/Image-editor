@@ -164,5 +164,12 @@ namespace ImageEditing
             Riempi.BorderStyle = BorderStyle.FixedSingle;
         }
 
+        // On Filters->Color filtering
+        private void colorFiltersItem_Click(object sender, System.EventArgs e)
+        {
+            //ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
+            //colorFiltersItem.Checked = true;
+            //sta roba non funziona
+        }
     }
 }
