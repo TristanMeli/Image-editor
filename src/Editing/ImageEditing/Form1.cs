@@ -88,5 +88,12 @@ namespace ImageEditing
             e.Graphics.DrawImage(newImage, x, y, A, h);
 
         }
+
+        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+            pictureBox1.Image.Save($"ImageEditing{r.Next(10000)}");
+            MessageBox.Show("Immagine salvata");
+        }
     }
 }
