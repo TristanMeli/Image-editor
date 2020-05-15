@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Image Processing filters demo
+// AForge.NET framework
+// http://www.aforgenet.com/framework/
+//
+// Copyright © AForge.NET, 2006-2011
+// contacts@aforgenet.com
+//
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +14,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using System.Drawing.Imaging;
+using System.Collections;
+
+
+
 
 
 namespace ImageEditing
@@ -95,5 +108,6 @@ namespace ImageEditing
             pictureBox1.Image.Save($"ImageEditing{r.Next(10000)}");
             MessageBox.Show("Immagine salvata");
         }
+       
     }
 }
