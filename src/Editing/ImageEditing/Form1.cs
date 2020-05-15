@@ -25,12 +25,22 @@ namespace ImageEditing
 {
     public partial class Form1 : Form
     {
-        
+        //Bitmap DrawArea;
+        //int x = 150;
+       
         public Form1()
         {
             InitializeComponent();
 
-            Panel_Salva.Location = new System.Drawing.Point(371, 332);
+            //DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            
+            //pictureBox1.Image = DrawArea;
+            Panel_Salva.Location = new System.Drawing.Point(371, 232);
+
+            //Graphics g;
+            //g = Graphics.FromImage(DrawArea);
+            //g.Clear(Color.Transparent);
+            //g.Dispose();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -52,6 +62,7 @@ namespace ImageEditing
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = Image.FromFile(dlg.FileName);
+                //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
             }
         }
 
@@ -62,6 +73,17 @@ namespace ImageEditing
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
             Riempi.BorderStyle = default;
+            //Graphics g;
+            //g = Graphics.FromImage(DrawArea);
+
+            //Pen mypen = new Pen(Color.Black);
+
+            //g.DrawLine(mypen, 0, 0, 200, x);
+
+            //pictureBox1.Image = DrawArea;
+
+            //g.Dispose();
+            //x++;
         }
 
         private void normalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,6 +192,17 @@ namespace ImageEditing
             //ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
             //colorFiltersItem.Checked = true;
             //sta roba non funziona
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Graphics g;
+            //g = Graphics.FromImage(DrawArea);
+
+            //Pen mypen = new Pen(Brushes.Black);
+            //g.DrawLine(mypen, 0, 0, 200, 200);
+            //g.Clear(Color.White);
+            //g.Dispose();
         }
     }
 }
