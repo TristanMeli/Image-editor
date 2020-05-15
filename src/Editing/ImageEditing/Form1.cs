@@ -6,23 +6,10 @@
 // contacts@aforgenet.com
 //
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using AForge;
-using AForge.Imaging;
-using AForge.Imaging.Filters;
-using AForge.Imaging.Textures;
-using System.Drawing.Imaging;
-using System.Collections;
 
 
 
@@ -37,7 +24,7 @@ namespace ImageEditing
         {
             InitializeComponent();
 
-            Panel_Salva.Location = new Point(371, 332);
+            Panel_Salva.Location = new System.Drawing.Point(371, 332);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
