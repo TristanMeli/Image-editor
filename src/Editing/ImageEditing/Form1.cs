@@ -35,13 +35,13 @@ namespace ImageEditing
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagine";
-            dlg.Filter = "all files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = Image.FromFile(dlg.FileName);
-            }
+            //var dlg = new OpenFileDialog();
+            //dlg.Title = "Scegli l'immagine";
+            //dlg.Filter = "all files (*.*)|*.*";
+            //if (dlg.ShowDialog() == DialogResult.OK)
+            //{
+            //    pictureBox1.Image = Image.FromFile(dlg.FileName);
+            //}
         }
 
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,8 +167,9 @@ namespace ImageEditing
         // On Filters->Color filtering
         private void colorFiltersItem_Click(object sender, System.EventArgs e)
         {
-            ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
-            colorFiltersItem.Checked = true;
+            //ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
+            //colorFiltersItem.Checked = true;
+            //sta roba non funziona
         }
     }
 }
