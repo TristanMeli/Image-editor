@@ -15,9 +15,7 @@ using AForge;
 using AForge.Imaging;
 using AForge.Imaging.Filters;
 using AForge.Imaging.Textures;
-
-
-
+using System.ComponentModel;
 
 
 
@@ -61,7 +59,7 @@ namespace ImageEditing
             dlg.Filter = "all files (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image = Image.FromFile(dlg.FileName);
+                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
                 //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
             }
@@ -101,6 +99,8 @@ namespace ImageEditing
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
+
         private void button1_Click(object sender, PaintEventArgs e)
         {
             var dlg = new OpenFileDialog();
@@ -204,6 +204,92 @@ namespace ImageEditing
             //g.DrawLine(mypen, 0, 0, 200, 200);
             //g.Clear(Color.White);
             //g.Dispose();
+        }
+
+        private System.Windows.Forms.MenuItem fileItem;
+        private System.Windows.Forms.MenuItem openFileItem;
+        private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.MenuItem exitFilrItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.MainMenu mainMenu;
+        private System.Windows.Forms.MenuItem sizeItem;
+        private System.Windows.Forms.MenuItem normalSizeItem;
+        private System.Windows.Forms.MenuItem stretchedSizeItem;
+        private System.Windows.Forms.MenuItem centeredSizeItem;
+        private System.Windows.Forms.MenuItem filtersItem;
+        private System.Windows.Forms.MenuItem noneFiltersItem;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem sepiaFiltersItem;
+        private System.Windows.Forms.MenuItem invertFiltersItem;
+        private System.Windows.Forms.MenuItem rotateChannelFiltersItem;
+        private System.Windows.Forms.MenuItem grayscaleFiltersItem;
+        private System.Windows.Forms.MenuItem colorFiltersItem;
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem hueModifierFiltersItem;
+        private System.Windows.Forms.MenuItem saturationAdjustingFiltersItem;
+        private System.Windows.Forms.MenuItem brightnessAdjustingFiltersItem;
+        private System.Windows.Forms.MenuItem contrastAdjustingFiltersItem;
+        private System.Windows.Forms.MenuItem hslFiltersItem;
+        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MenuItem yCbCrLinearFiltersItem;
+        private System.Windows.Forms.MenuItem yCbCrFiltersItem;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem thresholdFiltersItem;
+        private System.Windows.Forms.MenuItem floydFiltersItem;
+        private System.Windows.Forms.MenuItem orderedDitheringFiltersItem;
+        private System.Windows.Forms.MenuItem menuItem6;
+        private System.Windows.Forms.MenuItem convolutionFiltersItem;
+        private System.Windows.Forms.MenuItem sharpenFiltersItem;
+        private System.Windows.Forms.MenuItem menuItem7;
+        private System.Windows.Forms.MenuItem differenceEdgesFiltersItem;
+        private System.Windows.Forms.MenuItem homogenityEdgesFiltersItem;
+        private System.Windows.Forms.MenuItem sobelEdgesFiltersItem;
+        private System.Windows.Forms.MenuItem rgbLinearFiltersItem;
+        private System.Windows.Forms.MenuItem menuItem8;
+        private System.Windows.Forms.MenuItem jitterFiltersItem;
+        private System.Windows.Forms.MenuItem oilFiltersItem;
+        private MenuItem gaussianFiltersItem;
+        private MenuItem textureFiltersItem;
+        private IContainer components;
+
+        private System.Drawing.Bitmap sourceImage;
+        private System.Drawing.Bitmap filteredImage;
+
+        
+
+        // Clear current image in picture box
+        private void ClearCurrentImage()
+        {
+            // clear current image from picture box
+            pictureBox1.Image = null;
+            // free current image
+            if ((noneToolStripMenuItem.Checked == false) && (filteredImage != null))
+            {
+                filteredImage.Dispose();
+                filteredImage = null;
+            }
+            // uncheck all menu items
+            foreach (MenuItem item in filtersToolStripMenuItem.MenuItems)
+                item.Checked = false;
+        }
+
+        // Apply filter to the source image and show the filtered image
+        private void ApplyFilter(IFilter filter)
+        {
+            ClearCurrentImage();
+            // apply filter
+            filteredImage = filter.Apply(sourceImage);
+            // display filtered image
+            pictureBox1.Image = filteredImage;
+        }
+
+        private void noneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClearCurrentImage();
+            // display source image
+            pictureBox1.Image = sourceImage;
+            noneToolStripMenuItem.Checked = true;
         }
     }
 }
