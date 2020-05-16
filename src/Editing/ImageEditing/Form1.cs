@@ -19,6 +19,7 @@ using System.ComponentModel;
 
 
 
+
 namespace ImageEditing
 {
     public partial class Form1 : Form
@@ -251,7 +252,7 @@ namespace ImageEditing
         private System.Windows.Forms.MenuItem oilFiltersItem;
         private MenuItem gaussianFiltersItem;
         private MenuItem textureFiltersItem;
-        private IContainer components;
+        private IContainer component;
 
         private System.Drawing.Bitmap sourceImage;
         private System.Drawing.Bitmap filteredImage;
