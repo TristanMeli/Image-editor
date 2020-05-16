@@ -241,7 +241,6 @@
             this.brightnessAdjustingToolStripMenuItem.Name = "brightnessAdjustingToolStripMenuItem";
             this.brightnessAdjustingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.brightnessAdjustingToolStripMenuItem.Text = "Brightness adjusting";
-            this.brightnessAdjustingToolStripMenuItem.Click += new System.EventHandler(this.brightnessAdjustingToolStripMenuItem_Click);
             // 
             // contrastAdjustingToolStripMenuItem
             // 
