@@ -251,12 +251,12 @@ namespace ImageEditing
         private System.Windows.Forms.MenuItem oilFiltersItem;
         private MenuItem gaussianFiltersItem;
         private MenuItem textureFiltersItem;
-        private IContainer components;
+        private IContainer component;
 
         private System.Drawing.Bitmap sourceImage;
         private System.Drawing.Bitmap filteredImage;
 
-        
+
 
         // Clear current image in picture box
         private void ClearCurrentImage()
@@ -290,6 +290,30 @@ namespace ImageEditing
             // display source image
             pictureBox1.Image = sourceImage;
             noneToolStripMenuItem.Checked = true;
+        }
+
+        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(Grayscale.CommonAlgorithms.BT709);
+            grayscaleFiltersItem.Checked = true;
+        }
+
+        private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new Sepia());
+            sepiaFiltersItem.Checked = true;
+        }
+
+        private void invertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new Invert());
+            invertFiltersItem.Checked = true;
+        }
+
+        private void rotateChannelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new RotateChannels());
+            rotateChannelFiltersItem.Checked = true;
         }
     }
 }

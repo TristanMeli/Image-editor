@@ -186,24 +186,28 @@
             this.grayscaleToolStripMenuItem.Name = "grayscaleToolStripMenuItem";
             this.grayscaleToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.grayscaleToolStripMenuItem.Text = "&Grayscale";
+            this.grayscaleToolStripMenuItem.Click += new System.EventHandler(this.grayscaleToolStripMenuItem_Click);
             // 
             // sepiaToolStripMenuItem
             // 
             this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
             this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.sepiaToolStripMenuItem.Text = "&Sepia";
+            this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.sepiaToolStripMenuItem_Click);
             // 
             // invertToolStripMenuItem
             // 
             this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
             this.invertToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.invertToolStripMenuItem.Text = "&Invert";
+            this.invertToolStripMenuItem.Click += new System.EventHandler(this.invertToolStripMenuItem_Click);
             // 
             // rotateChannelToolStripMenuItem
             // 
             this.rotateChannelToolStripMenuItem.Name = "rotateChannelToolStripMenuItem";
             this.rotateChannelToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.rotateChannelToolStripMenuItem.Text = "&Rotate channel";
+            this.rotateChannelToolStripMenuItem.Click += new System.EventHandler(this.rotateChannelToolStripMenuItem_Click);
             // 
             // colorFilteringToolStripMenuItem
             // 
@@ -421,7 +425,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(741, 72);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 72);
             this.button1.TabIndex = 7;
@@ -443,7 +447,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(796, 165);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(92, 22);
             this.textBox1.TabIndex = 9;
