@@ -271,7 +271,7 @@ namespace ImageEditing
                 filteredImage = null;
             }
             // uncheck all menu items
-            foreach (MenuItem item in filtersToolStripMenuItem.MenuItems)
+            foreach (MenuItem item in filtersItem.MenuItems)
                 item.Checked = false;
         }
 
