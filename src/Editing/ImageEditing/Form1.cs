@@ -26,13 +26,13 @@ namespace ImageEditing
     {
         //Bitmap DrawArea;
         //int x = 150;
-       
+
         public Form1()
         {
             InitializeComponent();
 
             //DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
-            
+
             //pictureBox1.Image = DrawArea;
             Panel_Salva.Location = new System.Drawing.Point(371, 232);
 
@@ -113,8 +113,8 @@ namespace ImageEditing
             float y = 0.0F;
 
             label1.Text = "dimenzioni per l'asse x";
-            x= float.Parse(textBox1.Text);
-            
+            x = float.Parse(textBox1.Text);
+
             label1.Text = "dimenzioni per l'asse y";
             y = float.Parse(textBox1.Text);
 
@@ -124,7 +124,7 @@ namespace ImageEditing
             label1.Text = "dimenzioni per la larghezza";
             w = float.Parse(textBox1.Text);
 
-            RectangleF A = new RectangleF(x,y,w,a);
+            RectangleF A = new RectangleF(x, y, w, a);
             GraphicsUnit h = GraphicsUnit.Pixel;
 
             e.Graphics.DrawImage(newImage, x, y, A, h);
@@ -146,7 +146,7 @@ namespace ImageEditing
                 MessageBox.Show("Nome gia usato");
                 Panel_Salva.Visible = false;
                 return;
-            }               
+            }
             pictureBox1.Image.Save(nome + ".Png", ImageFormat.Png);
             MessageBox.Show("Immagine salvata");
             Panel_Salva.Visible = false;
@@ -163,7 +163,7 @@ namespace ImageEditing
 
         private void Zoom_Click(object sender, EventArgs e)
         {
-            Zoom.BorderStyle=BorderStyle.FixedSingle;
+            Zoom.BorderStyle = BorderStyle.FixedSingle;
             Matita.BorderStyle = default;
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
@@ -441,71 +441,74 @@ namespace ImageEditing
 
             ApplyFilter(filter);
             rgbLinearFiltersItem.Checked = true;
-        private void brightnessAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new BrightnessCorrection());
-            brightnessAdjustingFiltersItem.Checked = true;
         }
+            private void brightnessAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new BrightnessCorrection());
+                brightnessAdjustingFiltersItem.Checked = true;
+            }
 
-        private void hSLFilteringToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new HSLFiltering(new IntRange(330, 30), new Range(0, 1), new Range(0, 1)));
-            hslFiltersItem.Checked = true;
-        }
+            private void hSLFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new HSLFiltering(new IntRange(330, 30), new Range(0, 1), new Range(0, 1)));
+                hslFiltersItem.Checked = true;
+            }
 
-        private void yCbCrFilteringToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new YCbCrFiltering(new Range(0.2f, 0.9f), new Range(-0.3f, 0.3f), new Range(-0.3f, 0.3f)));
-            yCbCrFiltersItem.Checked = true;
-        }
+            private void yCbCrFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new YCbCrFiltering(new Range(0.2f, 0.9f), new Range(-0.3f, 0.3f), new Range(-0.3f, 0.3f)));
+                yCbCrFiltersItem.Checked = true;
+            }
 
-        private void floydSteinbergDitheringToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Bitmap originalImage = sourceImage;
+            private void floydSteinbergDitheringToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                Bitmap originalImage = sourceImage;
 
-            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+                sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
 
-            ApplyFilter(new FloydSteinbergDithering());
+                ApplyFilter(new FloydSteinbergDithering());
 
-            sourceImage.Dispose();
-            sourceImage = originalImage;
+                sourceImage.Dispose();
+                sourceImage = originalImage;
 
-            floydFiltersItem.Checked = true;
-        }
+                floydFiltersItem.Checked = true;
+            }
 
-        private void convolutionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new Convolution(new int[,] {
+            private void convolutionToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new Convolution(new int[,] {
                                 { 1, 2, 3, 2, 1 },
                                 { 2, 4, 5, 4, 2 },
                                 { 3, 5, 6, 5, 3 },
                                 { 2, 4, 5, 4, 2 },
                                 { 1, 2, 3, 2, 1 } }));
-            convolutionFiltersItem.Checked = true;
-        }
+                convolutionFiltersItem.Checked = true;
+            }
 
-        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new GaussianBlur(2.0, 7));
-            gaussianFiltersItem.Checked = true;
-        }
+            private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new GaussianBlur(2.0, 7));
+                gaussianFiltersItem.Checked = true;
+            }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new Texturer(new TextileTexture(), 1.0, 0.8));
-            textureFiltersItem.Checked = true;
-        }
+            private void toolStripMenuItem2_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new Texturer(new TextileTexture(), 1.0, 0.8));
+                textureFiltersItem.Checked = true;
+            }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new OilPainting());
-            oilFiltersItem.Checked = true;
-        }
+            private void toolStripMenuItem1_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new OilPainting());
+                oilFiltersItem.Checked = true;
+            }
 
-        private void jitterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ApplyFilter(new Jitter());
-            jitterFiltersItem.Checked = true;
-        }
+            private void jitterToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                ApplyFilter(new Jitter());
+                jitterFiltersItem.Checked = true;
+            }
+        
     }
 }
+
