@@ -442,6 +442,11 @@ namespace ImageEditing
             ApplyFilter(filter);
             rgbLinearFiltersItem.Checked = true;
         }
+        private void brightnessAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new BrightnessCorrection());
+            brightnessAdjustingFiltersItem.Checked = true;
+        }
             private void brightnessAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
             {
                 ApplyFilter(new BrightnessCorrection());
