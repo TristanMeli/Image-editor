@@ -316,5 +316,131 @@ namespace ImageEditing
             ApplyFilter(new RotateChannels());
             rotateChannelFiltersItem.Checked = true;
         }
+
+        private void colorFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
+            colorFiltersItem.Checked = true;
+        }
+
+        private void hueModifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new HueModifier(50));
+            hueModifierFiltersItem.Checked = true;
+        }
+
+        private void saturationAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new SaturationCorrection(0.15f));
+            saturationAdjustingFiltersItem.Checked = true;
+        }
+
+        private void contrastAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new ContrastCorrection());
+            contrastAdjustingFiltersItem.Checked = true;
+        }
+
+        private void yCbCrLinearCorrectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            YCbCrLinear filter = new YCbCrLinear();
+
+            filter.InCb = new Range(-0.3f, 0.3f);
+
+            ApplyFilter(filter);
+            yCbCrLinearFiltersItem.Checked = true;
+        }
+
+        private void thresholdBinarizationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap originalImage = sourceImage;
+            // get grayscale image
+            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+            // apply threshold filter
+            ApplyFilter(new Threshold());
+            // delete grayscale image and restore original
+            sourceImage.Dispose();
+            sourceImage = originalImage;
+
+            thresholdFiltersItem.Checked = true;
+        }
+
+        private void orderedDitheringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // save original image
+            Bitmap originalImage = sourceImage;
+            // get grayscale image
+            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+            // apply threshold filter
+            ApplyFilter(new OrderedDithering());
+            // delete grayscale image and restore original
+            sourceImage.Dispose();
+            sourceImage = originalImage;
+
+            orderedDitheringFiltersItem.Checked = true;
+        }
+
+        private void sharpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new Sharpen());
+            sharpenFiltersItem.Checked = true;
+        }
+
+        private void differenceEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // save original image
+            Bitmap originalImage = sourceImage;
+            // get grayscale image
+            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+            // apply edge filter
+            ApplyFilter(new DifferenceEdgeDetector());
+            // delete grayscale image and restore original
+            sourceImage.Dispose();
+            sourceImage = originalImage;
+
+            differenceEdgesFiltersItem.Checked = true;
+        }
+
+        private void homogenityEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // save original image
+            Bitmap originalImage = sourceImage;
+            // get grayscale image
+            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+            // apply edge filter
+            ApplyFilter(new HomogenityEdgeDetector());
+            // delete grayscale image and restore original
+            sourceImage.Dispose();
+            sourceImage = originalImage;
+
+            homogenityEdgesFiltersItem.Checked = true;
+        }
+
+        private void sobelEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // save original image
+            Bitmap originalImage = sourceImage;
+            // get grayscale image
+            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+            // apply edge filter
+            ApplyFilter(new SobelEdgeDetector());
+            // delete grayscale image and restore original
+            sourceImage.Dispose();
+            sourceImage = originalImage;
+
+            sobelEdgesFiltersItem.Checked = true;
+        }
+
+        private void levelsLinearCorrectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LevelsLinear filter = new LevelsLinear();
+
+            filter.InRed = new IntRange(30, 230);
+            filter.InGreen = new IntRange(50, 240);
+            filter.InBlue = new IntRange(10, 210);
+
+            ApplyFilter(filter);
+            rgbLinearFiltersItem.Checked = true;
+        }
     }
 }

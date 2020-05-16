@@ -214,24 +214,28 @@
             this.colorFilteringToolStripMenuItem.Name = "colorFilteringToolStripMenuItem";
             this.colorFilteringToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.colorFilteringToolStripMenuItem.Text = "&Color filtering";
+            this.colorFilteringToolStripMenuItem.Click += new System.EventHandler(this.colorFilteringToolStripMenuItem_Click);
             // 
             // levelsLinearCorrectionToolStripMenuItem
             // 
             this.levelsLinearCorrectionToolStripMenuItem.Name = "levelsLinearCorrectionToolStripMenuItem";
             this.levelsLinearCorrectionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.levelsLinearCorrectionToolStripMenuItem.Text = "&Levels linear correction";
+            this.levelsLinearCorrectionToolStripMenuItem.Click += new System.EventHandler(this.levelsLinearCorrectionToolStripMenuItem_Click);
             // 
             // hueModifierToolStripMenuItem
             // 
             this.hueModifierToolStripMenuItem.Name = "hueModifierToolStripMenuItem";
             this.hueModifierToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.hueModifierToolStripMenuItem.Text = "&Hue modifier";
+            this.hueModifierToolStripMenuItem.Click += new System.EventHandler(this.hueModifierToolStripMenuItem_Click);
             // 
             // saturationAdjustingToolStripMenuItem
             // 
             this.saturationAdjustingToolStripMenuItem.Name = "saturationAdjustingToolStripMenuItem";
             this.saturationAdjustingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.saturationAdjustingToolStripMenuItem.Text = "Saturation adjusting";
+            this.saturationAdjustingToolStripMenuItem.Click += new System.EventHandler(this.saturationAdjustingToolStripMenuItem_Click);
             // 
             // brightnessAdjustingToolStripMenuItem
             // 
@@ -244,6 +248,7 @@
             this.contrastAdjustingToolStripMenuItem.Name = "contrastAdjustingToolStripMenuItem";
             this.contrastAdjustingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.contrastAdjustingToolStripMenuItem.Text = "Contrast adjusting";
+            this.contrastAdjustingToolStripMenuItem.Click += new System.EventHandler(this.contrastAdjustingToolStripMenuItem_Click);
             // 
             // hSLFilteringToolStripMenuItem
             // 
@@ -256,6 +261,7 @@
             this.yCbCrLinearCorrectionToolStripMenuItem.Name = "yCbCrLinearCorrectionToolStripMenuItem";
             this.yCbCrLinearCorrectionToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.yCbCrLinearCorrectionToolStripMenuItem.Text = "YCbCr linear correction";
+            this.yCbCrLinearCorrectionToolStripMenuItem.Click += new System.EventHandler(this.yCbCrLinearCorrectionToolStripMenuItem_Click);
             // 
             // yCbCrFilteringToolStripMenuItem
             // 
@@ -268,6 +274,7 @@
             this.thresholdBinarizationToolStripMenuItem.Name = "thresholdBinarizationToolStripMenuItem";
             this.thresholdBinarizationToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.thresholdBinarizationToolStripMenuItem.Text = "Threshold binarization";
+            this.thresholdBinarizationToolStripMenuItem.Click += new System.EventHandler(this.thresholdBinarizationToolStripMenuItem_Click);
             // 
             // floydSteinbergDitheringToolStripMenuItem
             // 
@@ -280,6 +287,7 @@
             this.orderedDitheringToolStripMenuItem.Name = "orderedDitheringToolStripMenuItem";
             this.orderedDitheringToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.orderedDitheringToolStripMenuItem.Text = "Ordered dithering";
+            this.orderedDitheringToolStripMenuItem.Click += new System.EventHandler(this.orderedDitheringToolStripMenuItem_Click);
             // 
             // convolutionToolStripMenuItem
             // 
@@ -292,6 +300,7 @@
             this.sharpenToolStripMenuItem.Name = "sharpenToolStripMenuItem";
             this.sharpenToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.sharpenToolStripMenuItem.Text = "Sharpen";
+            this.sharpenToolStripMenuItem.Click += new System.EventHandler(this.sharpenToolStripMenuItem_Click);
             // 
             // gaussianBlurToolStripMenuItem
             // 
@@ -304,12 +313,14 @@
             this.differenceEdgeDetectorToolStripMenuItem.Name = "differenceEdgeDetectorToolStripMenuItem";
             this.differenceEdgeDetectorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.differenceEdgeDetectorToolStripMenuItem.Text = "Difference edge detector";
+            this.differenceEdgeDetectorToolStripMenuItem.Click += new System.EventHandler(this.differenceEdgeDetectorToolStripMenuItem_Click);
             // 
             // homogenityEdgeDetectorToolStripMenuItem
             // 
             this.homogenityEdgeDetectorToolStripMenuItem.Name = "homogenityEdgeDetectorToolStripMenuItem";
             this.homogenityEdgeDetectorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.homogenityEdgeDetectorToolStripMenuItem.Text = "Homogenity edge detector";
+            this.homogenityEdgeDetectorToolStripMenuItem.Click += new System.EventHandler(this.homogenityEdgeDetectorToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -322,6 +333,7 @@
             this.sobelEdgeDetectorToolStripMenuItem.Name = "sobelEdgeDetectorToolStripMenuItem";
             this.sobelEdgeDetectorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.sobelEdgeDetectorToolStripMenuItem.Text = "Sobel edge detector";
+            this.sobelEdgeDetectorToolStripMenuItem.Click += new System.EventHandler(this.sobelEdgeDetectorToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -371,7 +383,7 @@
             this.Matita.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Matita.Image = ((System.Drawing.Image)(resources.GetObject("Matita.Image")));
             this.Matita.Location = new System.Drawing.Point(0, 22);
-            this.Matita.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Matita.Margin = new System.Windows.Forms.Padding(2);
             this.Matita.Name = "Matita";
             this.Matita.Size = new System.Drawing.Size(32, 32);
             this.Matita.TabIndex = 2;
@@ -383,7 +395,7 @@
             this.Riempi.BackColor = System.Drawing.Color.White;
             this.Riempi.Image = ((System.Drawing.Image)(resources.GetObject("Riempi.Image")));
             this.Riempi.Location = new System.Drawing.Point(35, 22);
-            this.Riempi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Riempi.Margin = new System.Windows.Forms.Padding(2);
             this.Riempi.Name = "Riempi";
             this.Riempi.Size = new System.Drawing.Size(32, 32);
             this.Riempi.TabIndex = 3;
@@ -395,7 +407,7 @@
             this.Gomma.BackColor = System.Drawing.Color.White;
             this.Gomma.Image = ((System.Drawing.Image)(resources.GetObject("Gomma.Image")));
             this.Gomma.Location = new System.Drawing.Point(70, 22);
-            this.Gomma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gomma.Margin = new System.Windows.Forms.Padding(2);
             this.Gomma.Name = "Gomma";
             this.Gomma.Size = new System.Drawing.Size(32, 32);
             this.Gomma.TabIndex = 4;
@@ -407,7 +419,7 @@
             this.Testo.BackColor = System.Drawing.Color.White;
             this.Testo.Image = ((System.Drawing.Image)(resources.GetObject("Testo.Image")));
             this.Testo.Location = new System.Drawing.Point(105, 22);
-            this.Testo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Testo.Margin = new System.Windows.Forms.Padding(2);
             this.Testo.Name = "Testo";
             this.Testo.Size = new System.Drawing.Size(32, 32);
             this.Testo.TabIndex = 5;
@@ -420,7 +432,7 @@
             this.Zoom.Image = ((System.Drawing.Image)(resources.GetObject("Zoom.Image")));
             this.Zoom.InitialImage = ((System.Drawing.Image)(resources.GetObject("Zoom.InitialImage")));
             this.Zoom.Location = new System.Drawing.Point(140, 22);
-            this.Zoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Zoom.Margin = new System.Windows.Forms.Padding(2);
             this.Zoom.Name = "Zoom";
             this.Zoom.Size = new System.Drawing.Size(32, 32);
             this.Zoom.TabIndex = 6;
@@ -467,7 +479,7 @@
             this.Panel_Salva.Controls.Add(this.label);
             this.Panel_Salva.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Panel_Salva.Location = new System.Drawing.Point(1500, 246);
-            this.Panel_Salva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel_Salva.Margin = new System.Windows.Forms.Padding(2);
             this.Panel_Salva.Name = "Panel_Salva";
             this.Panel_Salva.Size = new System.Drawing.Size(274, 185);
             this.Panel_Salva.TabIndex = 10;
@@ -476,7 +488,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(36, 115);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(194, 55);
             this.button3.TabIndex = 6;
@@ -487,7 +499,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(220, 79);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(28, 28);
             this.button2.TabIndex = 5;
@@ -498,7 +510,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(117, 79);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(102, 30);
             this.textBox3.TabIndex = 4;
@@ -518,7 +530,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(117, 42);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(102, 30);
             this.textBox2.TabIndex = 2;
