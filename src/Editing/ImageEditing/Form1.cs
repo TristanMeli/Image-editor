@@ -316,5 +316,72 @@ namespace ImageEditing
             ApplyFilter(new RotateChannels());
             rotateChannelFiltersItem.Checked = true;
         }
+
+        private void brightnessAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new BrightnessCorrection());
+            brightnessAdjustingFiltersItem.Checked = true;
+        }
+
+        private void hSLFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new HSLFiltering(new IntRange(330, 30), new Range(0, 1), new Range(0, 1)));
+            hslFiltersItem.Checked = true;
+        }
+
+        private void yCbCrFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new YCbCrFiltering(new Range(0.2f, 0.9f), new Range(-0.3f, 0.3f), new Range(-0.3f, 0.3f)));
+            yCbCrFiltersItem.Checked = true;
+        }
+
+        private void floydSteinbergDitheringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap originalImage = sourceImage;
+
+            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+
+            ApplyFilter(new FloydSteinbergDithering());
+
+            sourceImage.Dispose();
+            sourceImage = originalImage;
+
+            floydFiltersItem.Checked = true;
+        }
+
+        private void convolutionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new Convolution(new int[,] {
+                                { 1, 2, 3, 2, 1 },
+                                { 2, 4, 5, 4, 2 },
+                                { 3, 5, 6, 5, 3 },
+                                { 2, 4, 5, 4, 2 },
+                                { 1, 2, 3, 2, 1 } }));
+            convolutionFiltersItem.Checked = true;
+        }
+
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new GaussianBlur(2.0, 7));
+            gaussianFiltersItem.Checked = true;
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new Texturer(new TextileTexture(), 1.0, 0.8));
+            textureFiltersItem.Checked = true;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new OilPainting());
+            oilFiltersItem.Checked = true;
+        }
+
+        private void jitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ApplyFilter(new Jitter());
+            jitterFiltersItem.Checked = true;
+        }
     }
 }
