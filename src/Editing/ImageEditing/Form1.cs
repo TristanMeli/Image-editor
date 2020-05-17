@@ -132,6 +132,8 @@ namespace ImageEditing
             y = float.Parse(textBox1.Text);
 
 
+            x = float.Parse(textBox1.Text);
+
             y = float.Parse(textBox2.Text);
 
             a = float.Parse(textBox3.Text);
@@ -145,6 +147,8 @@ namespace ImageEditing
 
             Image newImage = pictureBox.Image;
             RectangleF A = new RectangleF(x, y, w, a);
+            Image newImage = pictureBox1.Image;
+            RectangleF p = new RectangleF(x, y, w, a);
             newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
             pictureBox.Image = newImage; 
 
