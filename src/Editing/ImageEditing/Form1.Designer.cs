@@ -35,7 +35,6 @@
             this.caricaImmagineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rayscaleFiltersItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,6 +80,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -143,7 +143,7 @@
             // filtersMenuItem
             // 
             this.filtersMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.noneToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.rayscaleFiltersItem,
             this.sepiaToolStripMenuItem,
             this.invertToolStripMenuItem,
@@ -172,13 +172,6 @@
             this.filtersMenuItem.Name = "filtersMenuItem";
             this.filtersMenuItem.Size = new System.Drawing.Size(50, 22);
             this.filtersMenuItem.Text = "&Filters";
-            // 
-            // noneToolStripMenuItem
-            // 
-            this.noneToolStripMenuItem.Name = "noneToolStripMenuItem";
-            this.noneToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.noneToolStripMenuItem.Text = "&None";
-            this.noneToolStripMenuItem.Click += new System.EventHandler(this.noneToolStripMenuItem_Click);
             // 
             // rayscaleFiltersItem
             // 
@@ -565,6 +558,12 @@
             this.label.TabIndex = 0;
             this.label.Text = "Salva";
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItem3.Text = "None";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -658,6 +657,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 
