@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caricaImmagineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-<<<<<<< HEAD
-=======
+
             this.filtersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,13 +62,13 @@
             this.sobelEdgeDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.jitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             this.sizeModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centeredToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stretchedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Matita = new System.Windows.Forms.PictureBox();
-<<<<<<< HEAD
+
             this.Pennarello = new System.Windows.Forms.PictureBox();
             this.Riempi = new System.Windows.Forms.PictureBox();
             this.Spray = new System.Windows.Forms.PictureBox();
@@ -83,7 +82,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-=======
+
             this.Riempi = new System.Windows.Forms.PictureBox();
             this.Gomma = new System.Windows.Forms.PictureBox();
             this.Testo = new System.Windows.Forms.PictureBox();
@@ -100,7 +99,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -116,15 +115,15 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-<<<<<<< HEAD
+
             this.pictureBox1.Location = new System.Drawing.Point(0, 59);
-=======
+
             this.pictureBox1.Location = new System.Drawing.Point(0, 73);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(535, 311);
             this.pictureBox1.Location = new System.Drawing.Point(0, 58);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(536, 334);
@@ -141,13 +140,13 @@
             this.sizeModeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-<<<<<<< HEAD
+
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
             this.menuStrip1.Size = new System.Drawing.Size(805, 24);
-=======
+
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
             this.menuStrip1.Size = new System.Drawing.Size(685, 24);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -334,7 +333,7 @@
             this.brightnessAdjustingToolStripMenuItem.Text = "Brightness adjusting";
             // 
             // contrastAdjustingToolStripMenuItem
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             // 
             this.contrastAdjustingToolStripMenuItem.Name = "contrastAdjustingToolStripMenuItem";
             this.contrastAdjustingToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
@@ -598,7 +597,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(556, 59);
             this.button1.Location = new System.Drawing.Point(556, 58);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 39);
             this.button1.TabIndex = 7;
@@ -698,12 +697,12 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(102, 30);
             this.textBox3.TabIndex = 4;
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-<<<<<<< HEAD
+
             this.label3.Location = new System.Drawing.Point(546, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 13);
@@ -775,7 +774,7 @@
             this.trackBar1.Size = new System.Drawing.Size(358, 45);
             this.trackBar1.TabIndex = 11;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             // 
             // Form1
             // 
@@ -795,7 +794,7 @@
             this.ClientSize = new System.Drawing.Size(685, 389);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.Panel_Salva);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -892,7 +891,8 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TrackBar trackBar1;
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+       
     }
 }
+    
 

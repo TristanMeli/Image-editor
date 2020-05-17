@@ -16,8 +16,7 @@ using AForge.Imaging;
 using AForge.Imaging.Filters;
 using AForge.Imaging.Textures;
 using System.ComponentModel;
-
-
+using Image = System.Drawing.Image;
 
 
 namespace ImageEditing
@@ -50,7 +49,7 @@ namespace ImageEditing
             dlg.Filter = "all files (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                pictureBox.Image = System.Drawing.Image.FromFile(dlg.FileName);
             }
         }
 
@@ -60,14 +59,14 @@ namespace ImageEditing
             {
                 if (imm.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox1.Image = Image.FromFile(imm.FileName);
-                    immagine = pictureBox1.Image;
+                    pictureBox.Image = Image.FromFile(imm.FileName);
+                    immagine = pictureBox.Image;
                 }
 
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                pictureBox.Image = System.Drawing.Image.FromFile(dlg.FileName);
                 //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
-                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+                pictureBox.Image = System.Drawing.Image.FromFile(dlg.FileName);
                 
             }
         }
@@ -94,27 +93,27 @@ namespace ImageEditing
 
         private void normalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
+            pictureBox.SizeMode = PictureBoxSizeMode.Normal;
         }
 
         private void centeredToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
         }
 
         private void stretchedToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-<<<<<<< HEAD
-=======
+
 
 
         private void button1_Click(object sender, PaintEventArgs e)
         {
             var dlg = new OpenFileDialog();
             System.Drawing.Image newImage = System.Drawing.Image.FromFile(dlg.FileName);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -123,31 +122,31 @@ namespace ImageEditing
             float a = 0.0F;
             float y = 0.0F;
 
-<<<<<<< HEAD
+
             x = float.Parse(textBox1.Text);
-=======
+
             label1.Text = "dimenzioni per l'asse x";
             x = float.Parse(textBox1.Text);
 
             label1.Text = "dimenzioni per l'asse y";
             y = float.Parse(textBox1.Text);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
 
             y = float.Parse(textBox2.Text);
 
             a = float.Parse(textBox3.Text);
 
-<<<<<<< HEAD
+
             w = float.Parse(textBox4.Text);
-=======
+
             RectangleF A = new RectangleF(x, y, w, a);
             GraphicsUnit h = GraphicsUnit.Pixel;
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
 
-            Image newImage = pictureBox1.Image;
+
+            Image newImage = pictureBox.Image;
             RectangleF A = new RectangleF(x, y, w, a);
             newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
-            pictureBox1.Image = newImage; 
+            pictureBox.Image = newImage; 
 
         }
 
@@ -167,7 +166,7 @@ namespace ImageEditing
                 Panel_Salva.Visible = false;
                 return;
             }
-            pictureBox1.Image.Save(nome + ".Png", ImageFormat.Png);
+            pictureBox.Image.Save(nome + ".Png", ImageFormat.Png);
             MessageBox.Show("Immagine salvata");
             Panel_Salva.Visible = false;
         }
@@ -220,13 +219,13 @@ namespace ImageEditing
         {
             if (trackBar1.Value > 0)
             {
-                pictureBox1.Image = Zooom(immagine, new Size(trackBar1.Value, trackBar1.Value));
+                pictureBox.Image = Zooom(immagine, new Size(trackBar1.Value, trackBar1.Value));
             }
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (pictureBox1.Image != null)
-                pictureBox1.Dispose();
+            if (pictureBox.Image != null)
+                pictureBox.Dispose();
         }
         // On Filters->Color filtering
         private void colorFiltersItem_Click(object sender, System.EventArgs e)
@@ -303,7 +302,7 @@ namespace ImageEditing
         private void ClearCurrentImage()
         {
             // clear current image from picture box
-            pictureBox1.Image = null;
+            pictureBox.Image = null;
             // free current image
             if ((noneToolStripMenuItem.Checked == false) && (filteredImage != null))
             {
@@ -322,14 +321,14 @@ namespace ImageEditing
             // apply filter
             filteredImage = filter.Apply(sourceImage);
             // display filtered image
-            pictureBox1.Image = filteredImage;
+            pictureBox.Image = filteredImage;
         }
 
         private void noneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClearCurrentImage();
             // display source image
-            pictureBox1.Image = sourceImage;
+            pictureBox.Image = sourceImage;
             noneToolStripMenuItem.Checked = true;
         }
 
