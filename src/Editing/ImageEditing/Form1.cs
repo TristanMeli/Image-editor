@@ -123,29 +123,28 @@ namespace ImageEditing
             float a = 0.0F;
             float y = 0.0F;
 
-<<<<<<< HEAD
+
             x = float.Parse(textBox1.Text);
-=======
+
             label1.Text = "dimenzioni per l'asse x";
             x = float.Parse(textBox1.Text);
 
             label1.Text = "dimenzioni per l'asse y";
             y = float.Parse(textBox1.Text);
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
+
 
             y = float.Parse(textBox2.Text);
 
             a = float.Parse(textBox3.Text);
 
-<<<<<<< HEAD
+<
             w = float.Parse(textBox4.Text);
-=======
+
             RectangleF A = new RectangleF(x, y, w, a);
             GraphicsUnit h = GraphicsUnit.Pixel;
->>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
 
             Image newImage = pictureBox1.Image;
-            RectangleF A = new RectangleF(x, y, w, a);
+            RectangleF p = new RectangleF(x, y, w, a);
             newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
             pictureBox1.Image = newImage; 
 
