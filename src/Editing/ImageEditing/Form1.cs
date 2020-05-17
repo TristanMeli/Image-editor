@@ -24,6 +24,7 @@ namespace ImageEditing
 {
     public partial class Form1 : Form
     {
+        Image immagine;
         //Bitmap DrawArea;
         //int x = 150;
 
@@ -55,11 +56,14 @@ namespace ImageEditing
 
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagne";
-            dlg.Filter = "all files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog imm = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "all files (*.*)|*.*" })
             {
+                if (imm.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(imm.FileName);
+                    immagine = pictureBox1.Image;
+                }
+
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
                 //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
@@ -100,34 +104,48 @@ namespace ImageEditing
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+<<<<<<< HEAD
+=======
 
 
         private void button1_Click(object sender, PaintEventArgs e)
         {
             var dlg = new OpenFileDialog();
             System.Drawing.Image newImage = System.Drawing.Image.FromFile(dlg.FileName);
+>>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
 
+        private void button1_Click(object sender, EventArgs e)
+        {
             float x = 0.0F;
             float w = 0.0F;
             float a = 0.0F;
             float y = 0.0F;
 
+<<<<<<< HEAD
+            x = float.Parse(textBox1.Text);
+=======
             label1.Text = "dimenzioni per l'asse x";
             x = float.Parse(textBox1.Text);
 
             label1.Text = "dimenzioni per l'asse y";
             y = float.Parse(textBox1.Text);
+>>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
 
-            label1.Text = "dimenzioni per l'altezza";
-            a = float.Parse(textBox1.Text);
+            y = float.Parse(textBox2.Text);
 
-            label1.Text = "dimenzioni per la larghezza";
-            w = float.Parse(textBox1.Text);
+            a = float.Parse(textBox3.Text);
 
+<<<<<<< HEAD
+            w = float.Parse(textBox4.Text);
+=======
             RectangleF A = new RectangleF(x, y, w, a);
             GraphicsUnit h = GraphicsUnit.Pixel;
+>>>>>>> 22f3a0ddb8286da040915760922fbcebab85805e
 
-            e.Graphics.DrawImage(newImage, x, y, A, h);
+            Image newImage = pictureBox1.Image;
+            RectangleF A = new RectangleF(x, y, w, a);
+            newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
+            pictureBox1.Image = newImage; 
 
         }
 
@@ -188,6 +206,26 @@ namespace ImageEditing
             Riempi.BorderStyle = BorderStyle.FixedSingle;
         }
 
+        Image Zooom(Image img, Size size)
+        {
+            Bitmap bmp = new Bitmap(img, img.Width + (img.Width * size.Width / 100), img.Height + (img.Height * size.Height / 100));
+            Graphics g = Graphics.FromImage(bmp);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            return bmp;
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            if (trackBar1.Value > 0)
+            {
+                pictureBox1.Image = Zooom(immagine, new Size(trackBar1.Value, trackBar1.Value));
+            }
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (pictureBox1.Image != null)
+                pictureBox1.Dispose();
+        }
         // On Filters->Color filtering
         private void colorFiltersItem_Click(object sender, System.EventArgs e)
         {
