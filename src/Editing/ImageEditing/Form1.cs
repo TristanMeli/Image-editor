@@ -34,9 +34,7 @@ namespace ImageEditing
             //DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
 
             //pictureBox1.Image = DrawArea;
-            Panel_Salva.Location = new System.Drawing.Point(371, 232);
-
-            //Graphics g;
+            Panel_Salva.Location = new System.Drawing.Point(371, 232)            //Graphics g;
             //g = Graphics.FromImage(DrawArea);
             //g.Clear(Color.Transparent);
             //g.Dispose();
@@ -513,7 +511,29 @@ namespace ImageEditing
                 ApplyFilter(new Jitter());
                 jitterFiltersItem.Checked = true;
             }
-        
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            float x = 0.0F;
+            float w = 0.0F;
+            float a = 0.0F;
+            float y = 0.0F;
+
+            x = float.Parse(textBox1.Text);
+
+            y = float.Parse(textBox2.Text);
+
+            a = float.Parse(textBox3.Text);
+
+            w = float.Parse(textBox4.Text);
+
+            RectangleF A = new RectangleF(x, y, w, a);
+            GraphicsUnit h = GraphicsUnit.Pixel;
+
+            System.Drawing.Image newImage = pictureBox1.Image;
+            newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
+            pictureBox1.Image = newImage;
+        }
     }
 }
 
