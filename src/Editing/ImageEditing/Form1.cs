@@ -36,7 +36,7 @@ namespace ImageEditing
         private System.Windows.Forms.MenuItem stretchedSizeItem;
         private System.Windows.Forms.MenuItem centeredSizeItem;
         private System.Windows.Forms.MenuItem filtersItem;
-        private System.Windows.Forms.MenuItem noneFiltersItem;
+        private System.Windows.Forms.MenuItem noneToolStripMenuItem;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem sepiaFiltersItem;
         private System.Windows.Forms.MenuItem invertFiltersItem;
