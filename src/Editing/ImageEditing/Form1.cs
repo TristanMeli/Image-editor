@@ -126,18 +126,10 @@ namespace ImageEditing
 
             x = float.Parse(textBox1.Text);
 
-            label1.Text = "dimenzioni per l'asse x";
-            x = float.Parse(textBox1.Text);
-
-            label1.Text = "dimenzioni per l'asse y";
-            y = float.Parse(textBox1.Text);
-
-
             y = float.Parse(textBox2.Text);
 
             a = float.Parse(textBox3.Text);
 
-<
             w = float.Parse(textBox4.Text);
 
             RectangleF A = new RectangleF(x, y, w, a);
