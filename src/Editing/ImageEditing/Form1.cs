@@ -66,7 +66,9 @@ namespace ImageEditing
 
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
                 //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
+                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                
             }
         }
 
