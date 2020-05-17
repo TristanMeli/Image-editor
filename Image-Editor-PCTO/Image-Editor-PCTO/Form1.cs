@@ -20,8 +20,8 @@ using AForge.Imaging.Filters;
 using AForge.Imaging.Textures;
 using System.ComponentModel;
 using Image = System.Drawing.Image;
-
-
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace Image_Editor_PCTO
 {
@@ -44,23 +44,7 @@ namespace Image_Editor_PCTO
             }
         }
 
-        private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog imm = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "all files (*.*)|*.*" })
-            {
-                if (imm.ShowDialog() == DialogResult.OK)
-                {
-                    pictureBox1.Image = Image.FromFile(imm.FileName);
-                    immagine = pictureBox1.Image;
-                }
-                var dlg = new OpenFileDialog();
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
-                //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
-                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
 
-            }
-        }
 
         private void normalToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -135,6 +119,8 @@ namespace Image_Editor_PCTO
             }
                        
         }
+
+
         #region
         //private void ClearCurrentImage()
         //{
@@ -392,6 +378,38 @@ namespace Image_Editor_PCTO
         #endregion  //filtri//
         //filtri, lavoro daniel e bisso//
         #region
+        private void caricaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog imm = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "all files (*.*)|*.*" })
+            {
+                if (imm.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(imm.FileName);
+                }
+
+            }
+        }
+
+        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Salva.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string nome = textBox1.Text;
+            textBox2.Clear();
+            if (File.Exists(nome + "Png"))
+            {
+                MessageBox.Show("Nome gia usato");
+                Salva.Visible = false;
+                return;
+            }
+            pictureBox1.Image.Save(nome + ".Png", ImageFormat.Png);
+            MessageBox.Show("Immagine salvata");
+            Salva.Visible = false;
+        }
+
         //private void pictureBox2_Click(object sender, EventArgs e)
         //{
         //    Zoom.BorderStyle = default;
