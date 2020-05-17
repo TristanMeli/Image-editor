@@ -60,32 +60,26 @@ namespace ImageEditing
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-        private void button1_Click(object sender, PaintEventArgs e)
-        {
-            var dlg = new OpenFileDialog();
-            Image newImage = Image.FromFile(dlg.FileName);
 
+        private void button1_Click(object sender, EventArgs e)
+        {
             float x = 0.0F;
             float w = 0.0F;
             float a = 0.0F;
             float y = 0.0F;
 
-            label1.Text = "dimenzioni per l'asse x";
-            x= float.Parse(textBox1.Text);
-            
-            label1.Text = "dimenzioni per l'asse y";
-            y = float.Parse(textBox1.Text);
+            x = float.Parse(textBox1.Text);
 
-            label1.Text = "dimenzioni per l'altezza";
-            a = float.Parse(textBox1.Text);
+            y = float.Parse(textBox2.Text);
 
-            label1.Text = "dimenzioni per la larghezza";
-            w = float.Parse(textBox1.Text);
+            a = float.Parse(textBox3.Text);
 
-            RectangleF A = new RectangleF(x,y,w,a);
-            GraphicsUnit h = GraphicsUnit.Pixel;
+            w = float.Parse(textBox4.Text);
 
-            e.Graphics.DrawImage(newImage, x, y, A, h);
+            Image newImage = pictureBox1.Image;
+            RectangleF A = new RectangleF(x, y, w, a);
+            newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
+            pictureBox1.Image = newImage; 
 
         }
     }
