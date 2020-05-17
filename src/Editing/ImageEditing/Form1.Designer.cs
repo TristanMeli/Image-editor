@@ -113,23 +113,23 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 59);
+            this.pictureBox.Location = new System.Drawing.Point(0, 59);
 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 73);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(535, 311);
-            this.pictureBox1.Location = new System.Drawing.Point(0, 58);
+            this.pictureBox.Location = new System.Drawing.Point(0, 73);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox.Name = "pictureBox1";
+            this.pictureBox.Size = new System.Drawing.Size(535, 311);
+            this.pictureBox.Location = new System.Drawing.Point(0, 58);
 
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(536, 334);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.pictureBox.Name = "pictureBox1";
+            this.pictureBox.Size = new System.Drawing.Size(536, 334);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // menuStrip1
             // 
