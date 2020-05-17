@@ -106,6 +106,8 @@ namespace Image_Editor_PCTO
             pictureBox1.Image = newImage;
 
         }
+
+
         #region
         //private void ClearCurrentImage()
         //{
@@ -363,6 +365,25 @@ namespace Image_Editor_PCTO
         #endregion  //filtri//
         //filtri, lavoro daniel e bisso//
         #region
+
+        private void caricaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            dlg.Title = "Scegli l'immagine";
+            dlg.Filter = "all files (*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+            }
+        }
+
+        private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Panel_Salva.Visible = true;
+        }
+
+
+
         //private void pictureBox2_Click(object sender, EventArgs e)
         //{
         //    Zoom.BorderStyle = default;
