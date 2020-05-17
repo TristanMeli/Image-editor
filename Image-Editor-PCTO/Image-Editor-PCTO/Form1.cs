@@ -106,6 +106,35 @@ namespace Image_Editor_PCTO
             pictureBox1.Image = newImage;
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!(radioButton1.Checked == true || radioButton2.Checked == true || radioButton3.Checked == true))
+                return;
+            var dlg = new OpenFileDialog();
+            var bitmap1 = Bitmap.FromFile(dlg.FileName);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.Image = bitmap1;
+
+            if (radioButton1.Checked == true)
+            {
+                bitmap1.RotateFlip(RotateFlipType.Rotate90FlipX);
+                pictureBox1.Image = bitmap1;
+            }
+                
+            if (radioButton2.Checked == true)
+            {
+                bitmap1.RotateFlip(RotateFlipType.Rotate180FlipX);
+                pictureBox1.Image = bitmap1;
+            }
+
+            if (radioButton3.Checked == true)
+            {
+                bitmap1.RotateFlip(RotateFlipType.Rotate270FlipX);
+                pictureBox1.Image = bitmap1;
+            }
+                       
+        }
         #region
         //private void ClearCurrentImage()
         //{
