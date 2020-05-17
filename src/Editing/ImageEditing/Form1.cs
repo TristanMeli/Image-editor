@@ -19,7 +19,8 @@ namespace ImageEditing
 {
     public partial class Form1 : Form
     {
-        
+        Image immagine;
+
         public Form1()
         {
             InitializeComponent();
@@ -40,12 +41,14 @@ namespace ImageEditing
 
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagne";
-            dlg.Filter = "all files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog imm = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "all files (*.*)|*.*" })
             {
-                pictureBox1.Image = Image.FromFile(dlg.FileName);
+                if (imm.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(imm.FileName);
+                    immagine = pictureBox1.Image;
+                }
+
             }
         }
 
@@ -156,6 +159,27 @@ namespace ImageEditing
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
             Riempi.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        Image Zooom(Image img, Size size)
+        {
+            Bitmap bmp = new Bitmap(img, img.Width + (img.Width * size.Width / 100), img.Height + (img.Height * size.Height / 100));
+            Graphics g = Graphics.FromImage(bmp);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            return bmp;
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            if (trackBar1.Value > 0)
+            {
+                pictureBox1.Image = Zooom(immagine, new Size(trackBar1.Value, trackBar1.Value));
+            }
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (pictureBox1.Image != null)
+                pictureBox1.Dispose();
         }
     }
 }
