@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image-Editor-PCTO", "Image-Editor-PCTO\Image-Editor-PCTO.csproj", "{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{F8D420C5-8D26-4B85-8B81-9CC8B505383C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
