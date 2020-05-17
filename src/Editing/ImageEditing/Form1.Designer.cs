@@ -36,7 +36,7 @@
             this.salvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grayscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rayscaleFiltersItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateChannelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -144,7 +144,7 @@
             // 
             this.filtersMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.noneToolStripMenuItem,
-            this.grayscaleToolStripMenuItem,
+            this.rayscaleFiltersItem,
             this.sepiaToolStripMenuItem,
             this.invertToolStripMenuItem,
             this.rotateChannelToolStripMenuItem,
@@ -180,12 +180,12 @@
             this.noneToolStripMenuItem.Text = "&None";
             this.noneToolStripMenuItem.Click += new System.EventHandler(this.noneToolStripMenuItem_Click);
             // 
-            // grayscaleToolStripMenuItem
+            // rayscaleFiltersItem
             // 
-            this.grayscaleToolStripMenuItem.Name = "grayscaleToolStripMenuItem";
-            this.grayscaleToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.grayscaleToolStripMenuItem.Text = "&Grayscale";
-            this.grayscaleToolStripMenuItem.Click += new System.EventHandler(this.grayscaleToolStripMenuItem_Click);
+            this.rayscaleFiltersItem.Name = "rayscaleFiltersItem";
+            this.rayscaleFiltersItem.Size = new System.Drawing.Size(217, 22);
+            this.rayscaleFiltersItem.Text = "&Grayscale";
+            this.rayscaleFiltersItem.Click += new System.EventHandler(this.grayscaleToolStripMenuItem_Click);
             // 
             // sepiaToolStripMenuItem
             // 
@@ -391,7 +391,7 @@
             this.Matita.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Matita.Image = ((System.Drawing.Image)(resources.GetObject("Matita.Image")));
             this.Matita.Location = new System.Drawing.Point(0, 22);
-            this.Matita.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Matita.Margin = new System.Windows.Forms.Padding(2);
             this.Matita.Name = "Matita";
             this.Matita.Size = new System.Drawing.Size(32, 32);
             this.Matita.TabIndex = 2;
@@ -403,7 +403,7 @@
             this.Riempi.BackColor = System.Drawing.Color.White;
             this.Riempi.Image = ((System.Drawing.Image)(resources.GetObject("Riempi.Image")));
             this.Riempi.Location = new System.Drawing.Point(35, 22);
-            this.Riempi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Riempi.Margin = new System.Windows.Forms.Padding(2);
             this.Riempi.Name = "Riempi";
             this.Riempi.Size = new System.Drawing.Size(32, 32);
             this.Riempi.TabIndex = 3;
@@ -415,7 +415,7 @@
             this.Gomma.BackColor = System.Drawing.Color.White;
             this.Gomma.Image = ((System.Drawing.Image)(resources.GetObject("Gomma.Image")));
             this.Gomma.Location = new System.Drawing.Point(70, 22);
-            this.Gomma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gomma.Margin = new System.Windows.Forms.Padding(2);
             this.Gomma.Name = "Gomma";
             this.Gomma.Size = new System.Drawing.Size(32, 32);
             this.Gomma.TabIndex = 4;
@@ -427,7 +427,7 @@
             this.Testo.BackColor = System.Drawing.Color.White;
             this.Testo.Image = ((System.Drawing.Image)(resources.GetObject("Testo.Image")));
             this.Testo.Location = new System.Drawing.Point(105, 22);
-            this.Testo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Testo.Margin = new System.Windows.Forms.Padding(2);
             this.Testo.Name = "Testo";
             this.Testo.Size = new System.Drawing.Size(32, 32);
             this.Testo.TabIndex = 5;
@@ -440,7 +440,7 @@
             this.Zoom.Image = ((System.Drawing.Image)(resources.GetObject("Zoom.Image")));
             this.Zoom.InitialImage = ((System.Drawing.Image)(resources.GetObject("Zoom.InitialImage")));
             this.Zoom.Location = new System.Drawing.Point(140, 22);
-            this.Zoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Zoom.Margin = new System.Windows.Forms.Padding(2);
             this.Zoom.Name = "Zoom";
             this.Zoom.Size = new System.Drawing.Size(32, 32);
             this.Zoom.TabIndex = 6;
@@ -487,7 +487,7 @@
             this.Panel_Salva.Controls.Add(this.label);
             this.Panel_Salva.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Panel_Salva.Location = new System.Drawing.Point(1500, 246);
-            this.Panel_Salva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel_Salva.Margin = new System.Windows.Forms.Padding(2);
             this.Panel_Salva.Name = "Panel_Salva";
             this.Panel_Salva.Size = new System.Drawing.Size(274, 185);
             this.Panel_Salva.TabIndex = 10;
@@ -496,7 +496,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(36, 115);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(194, 55);
             this.button3.TabIndex = 6;
@@ -507,7 +507,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(220, 79);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(28, 28);
             this.button2.TabIndex = 5;
@@ -518,7 +518,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(117, 79);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(102, 30);
             this.textBox3.TabIndex = 4;
@@ -538,7 +538,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(117, 42);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(102, 30);
             this.textBox2.TabIndex = 2;
@@ -625,7 +625,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem filtersMenuItem;
         private System.Windows.Forms.ToolStripMenuItem noneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem grayscaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rayscaleFiltersItem;
         private System.Windows.Forms.ToolStripMenuItem sepiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotateChannelToolStripMenuItem;
