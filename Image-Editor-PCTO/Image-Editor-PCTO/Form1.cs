@@ -410,6 +410,51 @@ namespace Image_Editor_PCTO
             Salva.Visible = false;
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Matita.BorderStyle = BorderStyle.FixedSingle;
+            Sfondo.BorderStyle = default;
+            Zoom.BorderStyle = default;
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = default;
+        }
+
+        private void Gomma_Click(object sender, EventArgs e)
+        {
+            Matita.BorderStyle = default;
+            Sfondo.BorderStyle = default;
+            Zoom.BorderStyle = default;
+            Gomma.BorderStyle = BorderStyle.FixedSingle;
+            Testo.BorderStyle = default;
+        }
+
+        private void Sfondo_Click(object sender, EventArgs e)
+        {
+            Matita.BorderStyle = default;
+            Sfondo.BorderStyle = BorderStyle.FixedSingle;
+            Zoom.BorderStyle = default;
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = default;
+        }
+
+        private void Testo_Click(object sender, EventArgs e)
+        {
+            Matita.BorderStyle = default;
+            Sfondo.BorderStyle = default;
+            Zoom.BorderStyle = default;
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void Zoom_Click(object sender, EventArgs e)
+        {
+            Matita.BorderStyle = default;
+            Sfondo.BorderStyle = default;
+            Zoom.BorderStyle = BorderStyle.FixedSingle;
+            Gomma.BorderStyle = default;
+            Testo.BorderStyle = default;
+        }
+
         //private void pictureBox2_Click(object sender, EventArgs e)
         //{
         //    Zoom.BorderStyle = default;

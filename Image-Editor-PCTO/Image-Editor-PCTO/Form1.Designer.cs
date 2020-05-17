@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,17 +54,30 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Matita = new System.Windows.Forms.PictureBox();
+            this.Gomma = new System.Windows.Forms.PictureBox();
+            this.Sfondo = new System.Windows.Forms.PictureBox();
+            this.Testo = new System.Windows.Forms.PictureBox();
+            this.Zoom = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.Salva.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Gomma)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sfondo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Testo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(50, 110);
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 87);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1092, 606);
+            this.pictureBox1.Size = new System.Drawing.Size(1162, 629);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -152,7 +166,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1307, 598);
+            this.button2.Location = new System.Drawing.Point(1374, 586);
             this.button2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 63);
@@ -164,7 +178,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1212, 486);
+            this.label5.Location = new System.Drawing.Point(1279, 474);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(322, 25);
@@ -174,7 +188,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(1226, 529);
+            this.radioButton1.Location = new System.Drawing.Point(1293, 517);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(75, 29);
@@ -186,7 +200,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(1320, 529);
+            this.radioButton2.Location = new System.Drawing.Point(1387, 517);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(87, 29);
@@ -198,7 +212,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(1426, 529);
+            this.radioButton3.Location = new System.Drawing.Point(1493, 517);
             this.radioButton3.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(87, 29);
@@ -257,10 +271,11 @@
             this.Salva.Controls.Add(this.textBox5);
             this.Salva.Controls.Add(this.label7);
             this.Salva.Controls.Add(this.label6);
-            this.Salva.Location = new System.Drawing.Point(466, 279);
+            this.Salva.Location = new System.Drawing.Point(21, 666);
             this.Salva.Name = "Salva";
             this.Salva.Size = new System.Drawing.Size(541, 335);
             this.Salva.TabIndex = 16;
+            this.Salva.Visible = false;
             // 
             // label6
             // 
@@ -301,11 +316,76 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.Zoom);
+            this.panel1.Controls.Add(this.Testo);
+            this.panel1.Controls.Add(this.Sfondo);
+            this.panel1.Controls.Add(this.Gomma);
+            this.panel1.Controls.Add(this.Matita);
+            this.panel1.Location = new System.Drawing.Point(0, 43);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1162, 44);
+            this.panel1.TabIndex = 17;
+            // 
+            // Matita
+            // 
+            this.Matita.Image = ((System.Drawing.Image)(resources.GetObject("Matita.Image")));
+            this.Matita.Location = new System.Drawing.Point(12, 3);
+            this.Matita.Name = "Matita";
+            this.Matita.Size = new System.Drawing.Size(32, 32);
+            this.Matita.TabIndex = 0;
+            this.Matita.TabStop = false;
+            this.Matita.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // Gomma
+            // 
+            this.Gomma.Image = ((System.Drawing.Image)(resources.GetObject("Gomma.Image")));
+            this.Gomma.Location = new System.Drawing.Point(50, 3);
+            this.Gomma.Name = "Gomma";
+            this.Gomma.Size = new System.Drawing.Size(32, 32);
+            this.Gomma.TabIndex = 1;
+            this.Gomma.TabStop = false;
+            this.Gomma.Click += new System.EventHandler(this.Gomma_Click);
+            // 
+            // Sfondo
+            // 
+            this.Sfondo.Image = ((System.Drawing.Image)(resources.GetObject("Sfondo.Image")));
+            this.Sfondo.Location = new System.Drawing.Point(88, 3);
+            this.Sfondo.Name = "Sfondo";
+            this.Sfondo.Size = new System.Drawing.Size(32, 32);
+            this.Sfondo.TabIndex = 2;
+            this.Sfondo.TabStop = false;
+            this.Sfondo.Click += new System.EventHandler(this.Sfondo_Click);
+            // 
+            // Testo
+            // 
+            this.Testo.Image = ((System.Drawing.Image)(resources.GetObject("Testo.Image")));
+            this.Testo.Location = new System.Drawing.Point(126, 3);
+            this.Testo.Name = "Testo";
+            this.Testo.Size = new System.Drawing.Size(32, 32);
+            this.Testo.TabIndex = 3;
+            this.Testo.TabStop = false;
+            this.Testo.Click += new System.EventHandler(this.Testo_Click);
+            // 
+            // Zoom
+            // 
+            this.Zoom.Image = ((System.Drawing.Image)(resources.GetObject("Zoom.Image")));
+            this.Zoom.Location = new System.Drawing.Point(164, 3);
+            this.Zoom.Name = "Zoom";
+            this.Zoom.Size = new System.Drawing.Size(32, 32);
+            this.Zoom.TabIndex = 4;
+            this.Zoom.TabStop = false;
+            this.Zoom.Click += new System.EventHandler(this.Zoom_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(1744, 1013);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Salva);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
@@ -332,6 +412,12 @@
             this.menuStrip1.PerformLayout();
             this.Salva.ResumeLayout(false);
             this.Salva.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Matita)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Gomma)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sfondo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Testo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Zoom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,6 +450,12 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox Testo;
+        private System.Windows.Forms.PictureBox Sfondo;
+        private System.Windows.Forms.PictureBox Gomma;
+        private System.Windows.Forms.PictureBox Matita;
+        private System.Windows.Forms.PictureBox Zoom;
     }
 }
 
