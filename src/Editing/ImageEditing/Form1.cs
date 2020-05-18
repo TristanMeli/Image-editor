@@ -92,26 +92,95 @@ namespace ImageEditing
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagine";
-            dlg.Filter = "all files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.OK)
+            try
             {
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                // show file open dialog
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // load image
+                    sourceImage = (Bitmap)Bitmap.FromFile(openFileDialog.FileName);
+
+                    // check pixel format
+                    if ((sourceImage.PixelFormat == PixelFormat.Format16bppGrayScale) ||
+                         (Bitmap.GetPixelFormatSize(sourceImage.PixelFormat) > 32))
+                    {
+                        MessageBox.Show("The demo application supports only color images.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // free image
+                        sourceImage.Dispose();
+                        sourceImage = null;
+                    }
+                    else
+                    {
+                        // make sure the image has 24 bpp format
+                        if (sourceImage.PixelFormat != PixelFormat.Format24bppRgb)
+                        {
+                            Bitmap temp = AForge.Imaging.Image.Clone(sourceImage, PixelFormat.Format24bppRgb);
+                            sourceImage.Dispose();
+                            sourceImage = temp;
+                        }
+                    }
+
+                    ClearCurrentImage();
+
+                    // display image
+                    pictureBox.Image = sourceImage;
+                    noneToolStripMenuItem.Checked = true;
+
+                    // enable filters menu
+                    filtersItem.Enabled = (sourceImage != null);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Failed loading the image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagne";
-            dlg.Filter = "all files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.OK)
+            try
             {
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
-                //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                // show file open dialog
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // load image
+                    sourceImage = (Bitmap)Bitmap.FromFile(openFileDialog.FileName);
+
+                    // check pixel format
+                    if ((sourceImage.PixelFormat == PixelFormat.Format16bppGrayScale) ||
+                         (Bitmap.GetPixelFormatSize(sourceImage.PixelFormat) > 32))
+                    {
+                        MessageBox.Show("The demo application supports only color images.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // free image
+                        sourceImage.Dispose();
+                        sourceImage = null;
+                    }
+                    else
+                    {
+                        // make sure the image has 24 bpp format
+                        if (sourceImage.PixelFormat != PixelFormat.Format24bppRgb)
+                        {
+                            Bitmap temp = AForge.Imaging.Image.Clone(sourceImage, PixelFormat.Format24bppRgb);
+                            sourceImage.Dispose();
+                            sourceImage = temp;
+                        }
+                    }
+
+                    ClearCurrentImage();
+
+                    // display image
+                    pictureBox.Image = sourceImage;
+                    noneToolStripMenuItem.Checked = true;
+
+                    // enable filters menu
+                    filtersItem.Enabled = (sourceImage != null);
+                }
             }
+            catch
+            {
+                MessageBox.Show("Failed loading the image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
