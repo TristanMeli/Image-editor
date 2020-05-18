@@ -18,8 +18,6 @@ using AForge.Imaging.Textures;
 using System.ComponentModel;
 
 
-
-
 namespace ImageEditing
 {
     public partial class Form1 : Form
@@ -76,6 +74,8 @@ namespace ImageEditing
         //Bitmap DrawArea;
         //int x = 150;
 
+
+
         public Form1()
         {
             InitializeComponent();
@@ -110,7 +110,7 @@ namespace ImageEditing
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
-                //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
+              
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
             }
         }
