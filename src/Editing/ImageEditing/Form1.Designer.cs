@@ -35,6 +35,7 @@
             this.caricaImmagineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salvaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtersMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.rayscaleFiltersItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,7 +81,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -129,14 +129,14 @@
             // caricaImmagineToolStripMenuItem
             // 
             this.caricaImmagineToolStripMenuItem.Name = "caricaImmagineToolStripMenuItem";
-            this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.caricaImmagineToolStripMenuItem.Text = "Carica";
             this.caricaImmagineToolStripMenuItem.Click += new System.EventHandler(this.caricaImmagineToolStripMenuItem_Click);
             // 
             // salvaToolStripMenuItem
             // 
             this.salvaToolStripMenuItem.Name = "salvaToolStripMenuItem";
-            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salvaToolStripMenuItem.Text = "Salva";
             this.salvaToolStripMenuItem.Click += new System.EventHandler(this.salvaToolStripMenuItem_Click);
             // 
@@ -172,6 +172,12 @@
             this.filtersMenuItem.Name = "filtersMenuItem";
             this.filtersMenuItem.Size = new System.Drawing.Size(50, 22);
             this.filtersMenuItem.Text = "&Filters";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(217, 22);
+            this.toolStripMenuItem3.Text = "None";
             // 
             // rayscaleFiltersItem
             // 
@@ -361,21 +367,21 @@
             // normalToolStripMenuItem
             // 
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.normalToolStripMenuItem.Text = "Normal";
             this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
             // 
             // centeredToolStripMenuItem
             // 
             this.centeredToolStripMenuItem.Name = "centeredToolStripMenuItem";
-            this.centeredToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.centeredToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.centeredToolStripMenuItem.Text = "Centered";
             this.centeredToolStripMenuItem.Click += new System.EventHandler(this.centeredToolStripMenuItem_Click);
             // 
             // stretchedToolStripMenuItem
             // 
             this.stretchedToolStripMenuItem.Name = "stretchedToolStripMenuItem";
-            this.stretchedToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.stretchedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stretchedToolStripMenuItem.Text = "Stretched";
             this.stretchedToolStripMenuItem.Click += new System.EventHandler(this.stretchedToolStripMenuItem_Click);
             // 
@@ -557,12 +563,6 @@
             this.label.Size = new System.Drawing.Size(82, 31);
             this.label.TabIndex = 0;
             this.label.Text = "Salva";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(217, 22);
-            this.toolStripMenuItem3.Text = "None";
             // 
             // Form1
             // 

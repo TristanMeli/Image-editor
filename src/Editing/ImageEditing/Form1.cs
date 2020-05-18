@@ -18,6 +18,8 @@ using AForge.Imaging.Textures;
 using System.ComponentModel;
 
 
+
+
 namespace ImageEditing
 {
     public partial class Form1 : Form
@@ -34,7 +36,6 @@ namespace ImageEditing
         private System.Windows.Forms.MenuItem stretchedSizeItem;
         private System.Windows.Forms.MenuItem centeredSizeItem;
         private System.Windows.Forms.MenuItem filtersItem;
-        
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem sepiaFiltersItem;
         private System.Windows.Forms.MenuItem invertFiltersItem;
@@ -74,8 +75,6 @@ namespace ImageEditing
         //Bitmap DrawArea;
         //int x = 150;
 
-
-
         public Form1()
         {
             InitializeComponent();
@@ -110,7 +109,7 @@ namespace ImageEditing
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
-              
+                //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
                 pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
             }
         }
