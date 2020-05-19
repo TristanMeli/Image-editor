@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEditing", "ImageEditing\ImageEditing.csproj", "{327F6099-E7FE-4458-ABD4-7070DDC6762C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{C5FC606C-E5E4-4BF7-8FCB-9E631C9A1B2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{EBEFBDDF-7B68-42D5-B4AA-A6A53BF7D511}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +22,10 @@ Global
 		{C5FC606C-E5E4-4BF7-8FCB-9E631C9A1B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5FC606C-E5E4-4BF7-8FCB-9E631C9A1B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5FC606C-E5E4-4BF7-8FCB-9E631C9A1B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBEFBDDF-7B68-42D5-B4AA-A6A53BF7D511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEFBDDF-7B68-42D5-B4AA-A6A53BF7D511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEFBDDF-7B68-42D5-B4AA-A6A53BF7D511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBEFBDDF-7B68-42D5-B4AA-A6A53BF7D511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

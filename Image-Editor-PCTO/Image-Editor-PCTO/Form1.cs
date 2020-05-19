@@ -22,6 +22,9 @@ using System.ComponentModel;
 using Image = System.Drawing.Image;
 using System.IO;
 using System.Drawing.Imaging;
+using Image = System.Drawing.Image;
+
+
 
 namespace Image_Editor_PCTO
 {
@@ -45,6 +48,23 @@ namespace Image_Editor_PCTO
         }
 
 
+        private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog imm = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "all files (*.*)|*.*" })
+            {
+                if (imm.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox1.Image = Image.FromFile(imm.FileName);
+                    immagine = pictureBox1.Image;
+                }
+                var dlg = new OpenFileDialog();
+                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
+                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+
+            }
+        }
 
         private void normalToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -87,6 +107,7 @@ namespace Image_Editor_PCTO
 
             Image newImage = pictureBox1.Image; 
             newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
+            newImage = ClassLibrary2.Class1.Taglia(x, y, a, w, newImage);
             pictureBox1.Image = newImage;
 
         }

@@ -92,6 +92,9 @@
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
       <Project>{c5fc606c-e5e4-4bf7-8fcb-9e631c9a1b2c}</Project>
       <Name>ClassLibrary1</Name>
+    <ProjectReference Include="..\ClassLibrary2\ClassLibrary2.csproj">
+      <Project>{ebefbddf-7b68-42d5-b4aa-a6a53bf7d511}</Project>
+      <Name>ClassLibrary2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

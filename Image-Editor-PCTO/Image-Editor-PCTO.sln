@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image-Editor-PCTO", "Image-Editor-PCTO\Image-Editor-PCTO.csproj", "{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{F8D420C5-8D26-4B85-8B81-9CC8B505383C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{F8D420C5-8D26-4B85-8B81-9CC8B505383C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
