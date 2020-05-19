@@ -24,6 +24,9 @@ namespace ImageEditing
 {
     public partial class Form1 : Form
     {
+        private System.Drawing.Bitmap sourceImage;
+        private System.Drawing.Bitmap filteredImage;
+        private string imagePath = "";
         //Bitmap DrawArea;
         //int x = 150;
 
@@ -44,26 +47,57 @@ namespace ImageEditing
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            LoadImageFromDialog();
+        }
+
+        void LoadImageFromDialog()
+        {
             var dlg = new OpenFileDialog();
             dlg.Title = "Scegli l'immagine";
             dlg.Filter = "all files (*.*)|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
+                imagePath = dlg.FileName;
+                LoadImage();
+                if( ! CheckImageIntegrity())
+                {
+                    pictureBox1.Image = null;
+                    MessageBox.Show("L'applicazione supporta solo immagini a colori", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+        }
+
+        void LoadImage()
+        {
+            pictureBox1.Image = System.Drawing.Image.FromFile(imagePath);
+            sourceImage = (Bitmap)Bitmap.FromFile(imagePath);
+        }
+
+        bool CheckImageIntegrity()
+        {
+            if ((sourceImage.PixelFormat == PixelFormat.Format16bppGrayScale) ||
+                        (Bitmap.GetPixelFormatSize(sourceImage.PixelFormat) > 32))
+            {
+                sourceImage.Dispose();
+                sourceImage = null;
+                return false;
+            }
+            else
+            {
+                // make sure the image has 24 bpp format
+                if (sourceImage.PixelFormat != PixelFormat.Format24bppRgb)
+                {
+                    Bitmap temp = AForge.Imaging.Image.Clone(sourceImage, PixelFormat.Format24bppRgb);
+                    sourceImage.Dispose();
+                    sourceImage = temp;
+                }
+            }
+            return true;
         }
 
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagne";
-            dlg.Filter = "all files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
-                //pictureBox1.BackgroundImage = Image.FromFile(dlg.FileName);
-                pictureBox1.Image = System.Drawing.Image.FromFile(dlg.FileName);
-            }
+            LoadImageFromDialog();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -191,7 +225,7 @@ namespace ImageEditing
         // On Filters->Color filtering
         private void colorFiltersItem_Click(object sender, System.EventArgs e)
         {
-            //ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
+            ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
             //colorFiltersItem.Checked = true;
             //sta roba non funziona
         }
@@ -207,57 +241,6 @@ namespace ImageEditing
             //g.Dispose();
         }
 
-        private System.Windows.Forms.MenuItem fileItem;
-        private System.Windows.Forms.MenuItem openFileItem;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem exitFilrItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.MainMenu mainMenu;
-        private System.Windows.Forms.MenuItem sizeItem;
-        private System.Windows.Forms.MenuItem normalSizeItem;
-        private System.Windows.Forms.MenuItem stretchedSizeItem;
-        private System.Windows.Forms.MenuItem centeredSizeItem;
-        private System.Windows.Forms.MenuItem filtersItem;
-        private System.Windows.Forms.MenuItem noneFiltersItem;
-        private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem sepiaFiltersItem;
-        private System.Windows.Forms.MenuItem invertFiltersItem;
-        private System.Windows.Forms.MenuItem rotateChannelFiltersItem;
-        private System.Windows.Forms.MenuItem grayscaleFiltersItem;
-        private System.Windows.Forms.MenuItem colorFiltersItem;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem hueModifierFiltersItem;
-        private System.Windows.Forms.MenuItem saturationAdjustingFiltersItem;
-        private System.Windows.Forms.MenuItem brightnessAdjustingFiltersItem;
-        private System.Windows.Forms.MenuItem contrastAdjustingFiltersItem;
-        private System.Windows.Forms.MenuItem hslFiltersItem;
-        private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem yCbCrLinearFiltersItem;
-        private System.Windows.Forms.MenuItem yCbCrFiltersItem;
-        private System.Windows.Forms.MenuItem menuItem5;
-        private System.Windows.Forms.MenuItem thresholdFiltersItem;
-        private System.Windows.Forms.MenuItem floydFiltersItem;
-        private System.Windows.Forms.MenuItem orderedDitheringFiltersItem;
-        private System.Windows.Forms.MenuItem menuItem6;
-        private System.Windows.Forms.MenuItem convolutionFiltersItem;
-        private System.Windows.Forms.MenuItem sharpenFiltersItem;
-        private System.Windows.Forms.MenuItem menuItem7;
-        private System.Windows.Forms.MenuItem differenceEdgesFiltersItem;
-        private System.Windows.Forms.MenuItem homogenityEdgesFiltersItem;
-        private System.Windows.Forms.MenuItem sobelEdgesFiltersItem;
-        private System.Windows.Forms.MenuItem rgbLinearFiltersItem;
-        private System.Windows.Forms.MenuItem menuItem8;
-        private System.Windows.Forms.MenuItem jitterFiltersItem;
-        private System.Windows.Forms.MenuItem oilFiltersItem;
-        private MenuItem gaussianFiltersItem;
-        private MenuItem textureFiltersItem;
-        private IContainer component;
-
-        private System.Drawing.Bitmap sourceImage;
-        private System.Drawing.Bitmap filteredImage;
-
-
 
         // Clear current image in picture box
         private void ClearCurrentImage()
@@ -271,168 +254,209 @@ namespace ImageEditing
                 filteredImage = null;
             }
             // uncheck all menu items
-            foreach (MenuItem item in filtersItem.MenuItems)
-                item.Checked = false;
+            //foreach (MenuItem item in filtersItem.MenuItems)
+            //    item.Checked = false;
         }
 
         // Apply filter to the source image and show the filtered image
         private void ApplyFilter(IFilter filter)
         {
             ClearCurrentImage();
-            // apply filter
+           
             filteredImage = filter.Apply(sourceImage);
-            // display filtered image
+            
             pictureBox1.Image = filteredImage;
         }
 
         private void noneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClearCurrentImage();
-            // display source image
-            pictureBox1.Image = sourceImage;
+            LoadImage();
             noneToolStripMenuItem.Checked = true;
+            UncheckAllMenuItems();
+        }
+
+        void UncheckAllMenuItems()
+        {
+            rayscaleFiltersItem.Checked = false;
+            sepiaToolStripMenuItem.Checked = false;
+            invertToolStripMenuItem.Checked = false;
+            rotateChannelToolStripMenuItem.Checked = false;
+            colorFilteringToolStripMenuItem.Checked = false;
+            hueModifierToolStripMenuItem.Checked = false;
+            saturationAdjustingToolStripMenuItem.Checked = false;
+            contrastAdjustingToolStripMenuItem.Checked = false;
+            yCbCrLinearCorrectionToolStripMenuItem.Checked = false;
+            thresholdBinarizationToolStripMenuItem.Checked = false;
+            orderedDitheringToolStripMenuItem.Checked = false;
+            sharpenToolStripMenuItem.Checked = false;
+            differenceEdgeDetectorToolStripMenuItem.Checked = false;
+            homogenityEdgeDetectorToolStripMenuItem.Checked = false;
+            sobelEdgeDetectorToolStripMenuItem.Checked = false;
+            levelsLinearCorrectionToolStripMenuItem.Checked = false;
+            brightnessAdjustingToolStripMenuItem.Checked = false;
+            hSLFilteringToolStripMenuItem.Checked = false;
+            yCbCrFilteringToolStripMenuItem.Checked = false;
+            floydSteinbergDitheringToolStripMenuItem.Checked = false;
+            convolutionToolStripMenuItem.Checked = false;
+            gaussianBlurToolStripMenuItem.Checked = false;
+            toolStripMenuItem2.Checked = false;
+            toolStripMenuItem1.Checked = false;
+            jitterToolStripMenuItem.Checked = false;
         }
 
         private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(Grayscale.CommonAlgorithms.BT709);
-            grayscaleFiltersItem.Checked = true;
+            rayscaleFiltersItem.Checked = true;
         }
 
         private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new Sepia());
-            sepiaFiltersItem.Checked = true;
+            sepiaToolStripMenuItem.Checked = true;
         }
 
         private void invertToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new Invert());
-            invertFiltersItem.Checked = true;
+            invertToolStripMenuItem.Checked = true;
         }
 
         private void rotateChannelToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new RotateChannels());
-            rotateChannelFiltersItem.Checked = true;
+            rotateChannelToolStripMenuItem.Checked = true;
         }
 
         private void colorFilteringToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new ColorFiltering(new IntRange(25, 230), new IntRange(25, 230), new IntRange(25, 230)));
-            colorFiltersItem.Checked = true;
+            colorFilteringToolStripMenuItem.Checked = true;
         }
 
         private void hueModifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new HueModifier(50));
-            hueModifierFiltersItem.Checked = true;
+            hueModifierToolStripMenuItem.Checked = true;
         }
 
         private void saturationAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new SaturationCorrection(0.15f));
-            saturationAdjustingFiltersItem.Checked = true;
+            saturationAdjustingToolStripMenuItem.Checked = true;
         }
 
         private void contrastAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new ContrastCorrection());
-            contrastAdjustingFiltersItem.Checked = true;
+            contrastAdjustingToolStripMenuItem.Checked = true;
         }
 
         private void yCbCrLinearCorrectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             YCbCrLinear filter = new YCbCrLinear();
 
             filter.InCb = new Range(-0.3f, 0.3f);
 
             ApplyFilter(filter);
-            yCbCrLinearFiltersItem.Checked = true;
+            yCbCrLinearCorrectionToolStripMenuItem.Checked = true;
         }
 
         private void thresholdBinarizationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             Bitmap originalImage = sourceImage;
-            // get grayscale image
+            
             sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
-            // apply threshold filter
+            
             ApplyFilter(new Threshold());
-            // delete grayscale image and restore original
+            
             sourceImage.Dispose();
             sourceImage = originalImage;
 
-            thresholdFiltersItem.Checked = true;
+            thresholdBinarizationToolStripMenuItem.Checked = true;
         }
 
         private void orderedDitheringToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // save original image
+            UncheckAllMenuItems();
             Bitmap originalImage = sourceImage;
-            // get grayscale image
+            
             sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
-            // apply threshold filter
+            
             ApplyFilter(new OrderedDithering());
-            // delete grayscale image and restore original
+            
             sourceImage.Dispose();
             sourceImage = originalImage;
 
-            orderedDitheringFiltersItem.Checked = true;
+            orderedDitheringToolStripMenuItem.Checked = true;
         }
 
         private void sharpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new Sharpen());
-            sharpenFiltersItem.Checked = true;
+            sharpenToolStripMenuItem.Checked = true;
         }
 
         private void differenceEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // save original image
+            UncheckAllMenuItems();
             Bitmap originalImage = sourceImage;
-            // get grayscale image
+            
             sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
-            // apply edge filter
+            
             ApplyFilter(new DifferenceEdgeDetector());
-            // delete grayscale image and restore original
+            
             sourceImage.Dispose();
             sourceImage = originalImage;
 
-            differenceEdgesFiltersItem.Checked = true;
+            differenceEdgeDetectorToolStripMenuItem.Checked = true;
         }
 
         private void homogenityEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // save original image
+            UncheckAllMenuItems();
             Bitmap originalImage = sourceImage;
-            // get grayscale image
+            
             sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
-            // apply edge filter
+            
             ApplyFilter(new HomogenityEdgeDetector());
-            // delete grayscale image and restore original
+            
             sourceImage.Dispose();
             sourceImage = originalImage;
 
-            homogenityEdgesFiltersItem.Checked = true;
+            homogenityEdgeDetectorToolStripMenuItem.Checked = true;
         }
 
         private void sobelEdgeDetectorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // save original image
+            UncheckAllMenuItems();
             Bitmap originalImage = sourceImage;
-            // get grayscale image
+            
             sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
-            // apply edge filter
+            
             ApplyFilter(new SobelEdgeDetector());
-            // delete grayscale image and restore original
+            
             sourceImage.Dispose();
             sourceImage = originalImage;
 
-            sobelEdgesFiltersItem.Checked = true;
+            sobelEdgeDetectorToolStripMenuItem.Checked = true;
         }
 
         private void levelsLinearCorrectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             LevelsLinear filter = new LevelsLinear();
 
             filter.InRed = new IntRange(30, 230);
@@ -440,79 +464,84 @@ namespace ImageEditing
             filter.InBlue = new IntRange(10, 210);
 
             ApplyFilter(filter);
-            rgbLinearFiltersItem.Checked = true;
+            levelsLinearCorrectionToolStripMenuItem.Checked = true;
         }
+
         private void brightnessAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UncheckAllMenuItems();
             ApplyFilter(new BrightnessCorrection());
-            brightnessAdjustingFiltersItem.Checked = true;
+            brightnessAdjustingToolStripMenuItem.Checked = true;
         }
-            //private void brightnessAdjustingToolStripMenuItem_Click(object sender, EventArgs e)
-            //{
-            //    ApplyFilter(new BrightnessCorrection());
-            //    brightnessAdjustingFiltersItem.Checked = true;
-            //}
+            
+        private void hSLFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            ApplyFilter(new HSLFiltering(new IntRange(330, 30), new Range(0, 1), new Range(0, 1)));
+            hSLFilteringToolStripMenuItem.Checked = true;
+        }
 
-            private void hSLFilteringToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new HSLFiltering(new IntRange(330, 30), new Range(0, 1), new Range(0, 1)));
-                hslFiltersItem.Checked = true;
-            }
+        private void yCbCrFilteringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            ApplyFilter(new YCbCrFiltering(new Range(0.2f, 0.9f), new Range(-0.3f, 0.3f), new Range(-0.3f, 0.3f)));
+            yCbCrFilteringToolStripMenuItem.Checked = true;
+        }
 
-            private void yCbCrFilteringToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new YCbCrFiltering(new Range(0.2f, 0.9f), new Range(-0.3f, 0.3f), new Range(-0.3f, 0.3f)));
-                yCbCrFiltersItem.Checked = true;
-            }
+        private void floydSteinbergDitheringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            Bitmap originalImage = sourceImage;
 
-            private void floydSteinbergDitheringToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                Bitmap originalImage = sourceImage;
+            sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
 
-                sourceImage = Grayscale.CommonAlgorithms.RMY.Apply(sourceImage);
+            ApplyFilter(new FloydSteinbergDithering());
 
-                ApplyFilter(new FloydSteinbergDithering());
+            sourceImage.Dispose();
+            sourceImage = originalImage;
 
-                sourceImage.Dispose();
-                sourceImage = originalImage;
+            floydSteinbergDitheringToolStripMenuItem.Checked = true;
+        }
 
-                floydFiltersItem.Checked = true;
-            }
-
-            private void convolutionToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new Convolution(new int[,] {
+        private void convolutionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            ApplyFilter(new Convolution(new int[,] {
                                 { 1, 2, 3, 2, 1 },
                                 { 2, 4, 5, 4, 2 },
                                 { 3, 5, 6, 5, 3 },
                                 { 2, 4, 5, 4, 2 },
                                 { 1, 2, 3, 2, 1 } }));
-                convolutionFiltersItem.Checked = true;
-            }
+            convolutionToolStripMenuItem.Checked = true;
+        }
 
-            private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new GaussianBlur(2.0, 7));
-                gaussianFiltersItem.Checked = true;
-            }
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            ApplyFilter(new GaussianBlur(2.0, 7));
+            gaussianBlurToolStripMenuItem.Checked = true;
+        }
 
-            private void toolStripMenuItem2_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new Texturer(new TextileTexture(), 1.0, 0.8));
-                textureFiltersItem.Checked = true;
-            }
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            ApplyFilter(new Texturer(new TextileTexture(), 1.0, 0.8));
+            toolStripMenuItem2.Checked = true;
+        }
 
-            private void toolStripMenuItem1_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new OilPainting());
-                oilFiltersItem.Checked = true;
-            }
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            ApplyFilter(new OilPainting());
+            toolStripMenuItem1.Checked = true;
+        }
 
-            private void jitterToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new Jitter());
-                jitterFiltersItem.Checked = true;
-            }
+        private void jitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UncheckAllMenuItems();
+            ApplyFilter(new Jitter());
+            jitterToolStripMenuItem.Checked = true;
+        }
         
     }
 }
