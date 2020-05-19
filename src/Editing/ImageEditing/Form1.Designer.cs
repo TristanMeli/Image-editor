@@ -124,9 +124,8 @@
             this.sizeModeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(773, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(913, 26);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -366,7 +365,6 @@
             this.jitterToolStripMenuItem.Name = "jitterToolStripMenuItem";
             this.jitterToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.jitterToolStripMenuItem.Text = "Jitter";
-            this.jitterToolStripMenuItem.Click += new System.EventHandler(this.jitterToolStripMenuItem_Click);
             // 
             // sizeModeToolStripMenuItem
             // 
@@ -408,7 +406,7 @@
             // 
             this.Matita.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Matita.Image = ((System.Drawing.Image)(resources.GetObject("Matita.Image")));
-            this.Matita.Location = new System.Drawing.Point(0, 22);
+            this.Matita.Location = new System.Drawing.Point(0, 33);
             this.Matita.Margin = new System.Windows.Forms.Padding(2);
             this.Matita.Name = "Matita";
             this.Matita.Size = new System.Drawing.Size(43, 39);
@@ -420,7 +418,7 @@
             // 
             this.Riempi.BackColor = System.Drawing.Color.White;
             this.Riempi.Image = ((System.Drawing.Image)(resources.GetObject("Riempi.Image")));
-            this.Riempi.Location = new System.Drawing.Point(35, 22);
+            this.Riempi.Location = new System.Drawing.Point(35, 33);
             this.Riempi.Margin = new System.Windows.Forms.Padding(2);
             this.Riempi.Name = "Riempi";
             this.Riempi.Size = new System.Drawing.Size(43, 39);
@@ -432,7 +430,7 @@
             // 
             this.Gomma.BackColor = System.Drawing.Color.White;
             this.Gomma.Image = ((System.Drawing.Image)(resources.GetObject("Gomma.Image")));
-            this.Gomma.Location = new System.Drawing.Point(70, 22);
+            this.Gomma.Location = new System.Drawing.Point(70, 33);
             this.Gomma.Margin = new System.Windows.Forms.Padding(2);
             this.Gomma.Name = "Gomma";
             this.Gomma.Size = new System.Drawing.Size(43, 39);
@@ -444,7 +442,7 @@
             // 
             this.Testo.BackColor = System.Drawing.Color.White;
             this.Testo.Image = ((System.Drawing.Image)(resources.GetObject("Testo.Image")));
-            this.Testo.Location = new System.Drawing.Point(105, 22);
+            this.Testo.Location = new System.Drawing.Point(105, 33);
             this.Testo.Margin = new System.Windows.Forms.Padding(2);
             this.Testo.Name = "Testo";
             this.Testo.Size = new System.Drawing.Size(43, 39);
@@ -457,43 +455,13 @@
             this.Zoom.BackColor = System.Drawing.Color.White;
             this.Zoom.Image = ((System.Drawing.Image)(resources.GetObject("Zoom.Image")));
             this.Zoom.InitialImage = ((System.Drawing.Image)(resources.GetObject("Zoom.InitialImage")));
-            this.Zoom.Location = new System.Drawing.Point(140, 22);
+            this.Zoom.Location = new System.Drawing.Point(140, 33);
             this.Zoom.Margin = new System.Windows.Forms.Padding(2);
             this.Zoom.Name = "Zoom";
             this.Zoom.Size = new System.Drawing.Size(43, 39);
             this.Zoom.TabIndex = 6;
             this.Zoom.TabStop = false;
             this.Zoom.Click += new System.EventHandler(this.Zoom_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(741, 71);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 71);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "taglia";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(745, 165);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "taglia";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(796, 165);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 22);
-            this.textBox1.TabIndex = 9;
             // 
             // Panel_Salva
             // 
@@ -586,9 +554,9 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(629, 290);
+            this.radioButton3.Location = new System.Drawing.Point(643, 290);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(47, 17);
+            this.radioButton3.Size = new System.Drawing.Size(59, 21);
             this.radioButton3.TabIndex = 28;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "270°";
@@ -597,9 +565,9 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(576, 290);
+            this.radioButton2.Location = new System.Drawing.Point(590, 290);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 17);
+            this.radioButton2.Size = new System.Drawing.Size(59, 21);
             this.radioButton2.TabIndex = 27;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "180°";
@@ -608,9 +576,9 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(529, 290);
+            this.radioButton1.Location = new System.Drawing.Point(543, 290);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(41, 17);
+            this.radioButton1.Size = new System.Drawing.Size(51, 21);
             this.radioButton1.TabIndex = 26;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "90°";
@@ -621,15 +589,16 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(537, 262);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 13);
+            this.label5.Size = new System.Drawing.Size(213, 17);
             this.label5.TabIndex = 25;
             this.label5.Text = "ruota l\'immagine di quanti gradi?";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(576, 327);
+            this.button1.Location = new System.Drawing.Point(726, 287);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 33);
+            this.button1.Size = new System.Drawing.Size(66, 27);
             this.button1.TabIndex = 24;
             this.button1.Text = "ruota";
             this.button1.UseVisualStyleBackColor = true;
@@ -637,76 +606,83 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(679, 160);
+            this.textBox1.Location = new System.Drawing.Point(726, 160);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(77, 20);
+            this.textBox1.Size = new System.Drawing.Size(77, 22);
             this.textBox1.TabIndex = 23;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(537, 163);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(136, 13);
+            this.label1.Size = new System.Drawing.Size(184, 17);
             this.label1.TabIndex = 22;
             this.label1.Text = "dimensioni per la lunghezza";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(679, 135);
+            this.textBox4.Location = new System.Drawing.Point(726, 135);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(77, 20);
+            this.textBox4.Size = new System.Drawing.Size(77, 22);
             this.textBox4.TabIndex = 21;
+            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(537, 138);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 13);
+            this.label4.Size = new System.Drawing.Size(155, 17);
             this.label4.TabIndex = 20;
             this.label4.Text = "dimensioni per l\'altezza";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(679, 109);
+            this.textBox5.Location = new System.Drawing.Point(726, 109);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(77, 20);
+            this.textBox5.Size = new System.Drawing.Size(77, 22);
             this.textBox5.TabIndex = 19;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(537, 112);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 13);
+            this.label6.Size = new System.Drawing.Size(151, 17);
             this.label6.TabIndex = 18;
             this.label6.Text = "dimensioni per l\'asse y";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(679, 84);
+            this.textBox6.Location = new System.Drawing.Point(726, 84);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(77, 20);
+            this.textBox6.Size = new System.Drawing.Size(77, 22);
             this.textBox6.TabIndex = 17;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(537, 87);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 13);
+            this.label7.Size = new System.Drawing.Size(150, 17);
             this.label7.TabIndex = 16;
             this.label7.Text = "dimensioni per l\'asse x";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(679, 200);
+            this.button4.Location = new System.Drawing.Point(726, 200);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 15;
             this.button4.Text = "taglia";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -714,14 +690,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(773, 446);
+            this.ClientSize = new System.Drawing.Size(913, 479);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.ClientSize = new System.Drawing.Size(913, 479);
-            this.Controls.Add(this.Panel_Salva);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox4);

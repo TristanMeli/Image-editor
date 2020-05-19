@@ -533,13 +533,8 @@ namespace ImageEditing
             ApplyFilter(new OilPainting());
             toolStripMenuItem1.Checked = true;
         }
-            private void jitterToolStripMenuItem_Click(object sender, EventArgs e)
-            {
-                ApplyFilter(new Jitter());
-                jitterFiltersItem.Checked = true;
-            }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             float x = 0.0F;
             float w = 0.0F;
@@ -557,7 +552,8 @@ namespace ImageEditing
             RectangleF A = new RectangleF(x, y, w, a);
 
             System.Drawing.Image newImage = pictureBox1.Image;
-            newImage = ClassLibrary2.Class1.Taglia(x, y, a, w, newImage);
+            // ATTENZIONE: MANCA RIFERIMENTO A SYSTEM.DRAWING IN CLASSLIBRARY2
+            //newImage = ClassLibrary2.Class1.Taglia(x, y, a, w, newImage);
             pictureBox1.Image = newImage;
         }
 
@@ -566,26 +562,29 @@ namespace ImageEditing
             if (!(radioButton1.Checked == true || radioButton2.Checked == true || radioButton3.Checked == true))
                 return;
             var dlg = new OpenFileDialog();
-            var bitmap1 = Bitmap.FromFile(dlg.FileName);
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
-            pictureBox1.Image = bitmap1;
-
-            if (radioButton1.Checked == true)
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
-                bitmap1.RotateFlip(RotateFlipType.Rotate90FlipX);
+                var bitmap1 = Bitmap.FromFile(dlg.FileName);
+                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
                 pictureBox1.Image = bitmap1;
-            }
 
-            if (radioButton2.Checked == true)
-            {
-                bitmap1.RotateFlip(RotateFlipType.Rotate180FlipX);
-                pictureBox1.Image = bitmap1;
-            }
+                if (radioButton1.Checked == true)
+                {
+                    bitmap1.RotateFlip(RotateFlipType.Rotate90FlipX);
+                    pictureBox1.Image = bitmap1;
+                }
 
-            if (radioButton3.Checked == true)
-            {
-                bitmap1.RotateFlip(RotateFlipType.Rotate270FlipX);
-                pictureBox1.Image = bitmap1;
+                if (radioButton2.Checked == true)
+                {
+                    bitmap1.RotateFlip(RotateFlipType.Rotate180FlipX);
+                    pictureBox1.Image = bitmap1;
+                }
+
+                if (radioButton3.Checked == true)
+                {
+                    bitmap1.RotateFlip(RotateFlipType.Rotate270FlipX);
+                    pictureBox1.Image = bitmap1;
+                }
             }
         }
 
@@ -594,6 +593,26 @@ namespace ImageEditing
             UncheckAllMenuItems();
             ApplyFilter(new Jitter());
             jitterToolStripMenuItem.Checked = true;
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
