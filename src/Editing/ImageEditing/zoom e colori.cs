@@ -291,7 +291,7 @@ namespace ImageEditing
                 item.Checked = false;
         }
 
-        private void pictureBox2_Click_1(object sender, EventArgs e)
+        private void picturboxsfondo_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
             {
