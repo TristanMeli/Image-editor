@@ -104,12 +104,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -128,16 +129,14 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(0, 61);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(372, 227);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
-            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // menuStrip1
@@ -440,7 +439,7 @@
             this.Matita.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Matita.Image = ((System.Drawing.Image)(resources.GetObject("Matita.Image")));
             this.Matita.Location = new System.Drawing.Point(6, 27);
-            this.Matita.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Matita.Margin = new System.Windows.Forms.Padding(2);
             this.Matita.Name = "Matita";
             this.Matita.Size = new System.Drawing.Size(32, 32);
             this.Matita.TabIndex = 2;
@@ -454,7 +453,7 @@
             this.Riempi.BackColor = System.Drawing.Color.White;
             this.Riempi.Image = ((System.Drawing.Image)(resources.GetObject("Riempi.Image")));
             this.Riempi.Location = new System.Drawing.Point(231, 27);
-            this.Riempi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Riempi.Margin = new System.Windows.Forms.Padding(2);
             this.Riempi.Name = "Riempi";
             this.Riempi.Size = new System.Drawing.Size(32, 32);
             this.Riempi.TabIndex = 3;
@@ -468,7 +467,7 @@
             this.Gomma.BackColor = System.Drawing.Color.White;
             this.Gomma.Image = ((System.Drawing.Image)(resources.GetObject("Gomma.Image")));
             this.Gomma.Location = new System.Drawing.Point(267, 27);
-            this.Gomma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Gomma.Margin = new System.Windows.Forms.Padding(2);
             this.Gomma.Name = "Gomma";
             this.Gomma.Size = new System.Drawing.Size(32, 32);
             this.Gomma.TabIndex = 4;
@@ -482,7 +481,7 @@
             this.Testo.BackColor = System.Drawing.Color.White;
             this.Testo.Image = ((System.Drawing.Image)(resources.GetObject("Testo.Image")));
             this.Testo.Location = new System.Drawing.Point(339, 27);
-            this.Testo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Testo.Margin = new System.Windows.Forms.Padding(2);
             this.Testo.Name = "Testo";
             this.Testo.Size = new System.Drawing.Size(32, 32);
             this.Testo.TabIndex = 5;
@@ -497,7 +496,7 @@
             this.Zoom.Image = ((System.Drawing.Image)(resources.GetObject("Zoom.Image")));
             this.Zoom.InitialImage = ((System.Drawing.Image)(resources.GetObject("Zoom.InitialImage")));
             this.Zoom.Location = new System.Drawing.Point(303, 27);
-            this.Zoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Zoom.Margin = new System.Windows.Forms.Padding(2);
             this.Zoom.Name = "Zoom";
             this.Zoom.Size = new System.Drawing.Size(32, 32);
             this.Zoom.TabIndex = 6;
@@ -519,7 +518,7 @@
             this.Panel_Salva.Controls.Add(this.label);
             this.Panel_Salva.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Panel_Salva.Location = new System.Drawing.Point(1125, 200);
-            this.Panel_Salva.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Panel_Salva.Margin = new System.Windows.Forms.Padding(2);
             this.Panel_Salva.Name = "Panel_Salva";
             this.Panel_Salva.Size = new System.Drawing.Size(274, 185);
             this.Panel_Salva.TabIndex = 10;
@@ -528,7 +527,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(27, 93);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(194, 55);
             this.button3.TabIndex = 6;
@@ -539,7 +538,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(165, 64);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(28, 28);
             this.button2.TabIndex = 5;
@@ -550,7 +549,7 @@
             // 
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(88, 64);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(102, 30);
             this.textBox3.TabIndex = 4;
@@ -570,7 +569,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(88, 34);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(102, 30);
             this.textBox2.TabIndex = 2;
@@ -601,7 +600,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(129, 35);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(47, 17);
             this.radioButton3.TabIndex = 28;
@@ -613,7 +612,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(79, 35);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(47, 17);
             this.radioButton2.TabIndex = 27;
@@ -625,7 +624,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(23, 35);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(41, 17);
             this.radioButton1.TabIndex = 26;
@@ -656,10 +655,10 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(116, 89);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Location = new System.Drawing.Point(129, 89);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(170, 34);
+            this.button4.Size = new System.Drawing.Size(157, 34);
             this.button4.TabIndex = 15;
             this.button4.Text = "Taglia";
             this.button4.UseVisualStyleBackColor = true;
@@ -669,7 +668,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pictureBox2.Location = new System.Drawing.Point(122, 40);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(35, 17);
             this.pictureBox2.TabIndex = 30;
@@ -709,7 +708,7 @@
             // 
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.Location = new System.Drawing.Point(160, 41);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(25, 15);
             this.textBox7.TabIndex = 34;
@@ -720,7 +719,7 @@
             // 
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.Location = new System.Drawing.Point(180, 41);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(22, 15);
             this.textBox8.TabIndex = 35;
@@ -731,7 +730,7 @@
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.Location = new System.Drawing.Point(196, 41);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(22, 15);
             this.textBox9.TabIndex = 36;
@@ -817,14 +816,35 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.radioButton4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Location = new System.Drawing.Point(374, 81);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(294, 140);
             this.panel1.TabIndex = 43;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "llll";
+            this.label1.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(22, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(118, 38);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "seleziona la parte da tagliare";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // panel2
             // 
@@ -836,7 +856,7 @@
             this.panel2.Controls.Add(this.radioButton2);
             this.panel2.Controls.Add(this.radioButton3);
             this.panel2.Location = new System.Drawing.Point(374, 223);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 65);
             this.panel2.TabIndex = 44;
@@ -846,7 +866,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Location = new System.Drawing.Point(374, 27);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(292, 53);
             this.panel3.TabIndex = 45;
@@ -875,25 +895,16 @@
             this.label17.Text = "Testo";
             this.label17.Visible = false;
             // 
-            // button5
+            // radioButton4
             // 
-            this.button5.Location = new System.Drawing.Point(22, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(159, 40);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "seleziona la parte da tagliare";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "llll";
-            this.label1.Visible = false;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(161, 23);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(108, 17);
+            this.radioButton4.TabIndex = 18;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "clicca per tagliare";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // ImageEditor
             // 
@@ -1038,6 +1049,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
 
