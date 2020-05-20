@@ -106,7 +106,7 @@ namespace Image_Editor_PCTO
             GraphicsUnit h = GraphicsUnit.Pixel;
 
             Image newImage = pictureBox1.Image; 
-            newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
+            newImage = ClassLibrary2.Class1.Taglia(x, y, a, w, newImage);
             pictureBox1.Image = newImage;
 
         }
