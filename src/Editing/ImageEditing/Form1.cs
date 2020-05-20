@@ -896,6 +896,30 @@ namespace ImageEditing
             label17.Hide();
         }
 
+<<<<<<< HEAD
+=======
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            //if (radioButton4.Checked==false)
+            //{
+            //    MessageBox.Show("selezionare il bottone per tagliare");
+            //    return;
+            //}
+            //pictureBox1.MouseDown += new MouseEventHandler(pictureBox1_MouseDown);
+            //pictureBox1.MouseMove += new MouseEventHandler(pictureBox1_MouseMove);
+            //pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
+            //Controls.Add(pictureBox1);
+        }
+        int px, py, rectW, rectH;
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ClearCurrentImage();
+            LoadImage();
+        }
+
+        public Pen pen = new Pen(Color.White);
+>>>>>>> d2da26766d4ce45975c4a034734879a212f2e4a4
         
 
     }
