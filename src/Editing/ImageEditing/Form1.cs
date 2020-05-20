@@ -614,6 +614,11 @@ namespace ImageEditing
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // salva immagine
+        }
     }
 }
 
