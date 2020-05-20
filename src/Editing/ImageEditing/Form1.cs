@@ -47,7 +47,7 @@ namespace ImageEditing
             DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
 
             pictureBox1.Image = DrawArea;
-            Panel_Salva.Location = new System.Drawing.Point(371, 232);        
+            Panel_Salva.Location = new System.Drawing.Point(200, 100);        
             Graphics g;
             g = Graphics.FromImage(DrawArea);
             g.Clear(Color.Transparent);
@@ -107,7 +107,13 @@ namespace ImageEditing
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadImageFromDialog();
+            
             nuovo = false;
+        }
+
+        private void SaveFileDialog()
+        {
+       
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -165,6 +171,9 @@ namespace ImageEditing
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            SaveFileDialog();
+
             string nome = textBox2.Text;
             textBox2.Clear();
             if (File.Exists(nome + "Png"))
@@ -568,7 +577,7 @@ namespace ImageEditing
             var dlg = new OpenFileDialog();
             Bitmap bmp = new Bitmap(dlg.FileName);
             g.DrawImage(bmp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius));
-            //tmp.Save()
+            tmp.Save(textBox3.Text + ".Png", ImageFormat.Png);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -579,7 +588,7 @@ namespace ImageEditing
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 var bitmap1 = Bitmap.FromFile(dlg.FileName);
-                pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = bitmap1;
 
                 if (radioButton1.Checked == true)
@@ -719,16 +728,11 @@ namespace ImageEditing
             DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
             pictureBox1.Image = DrawArea;
             Pen matita;
-
-            //Graphics g;
-            //g = Graphics.FromImage(DrawArea);
-            //g.DrawRectangle(matita, );
-            //g.Dispose();
         }
 
         private void tgomma_Tick(object sender, EventArgs e)
         {
-            //gomma
+       
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -749,58 +753,14 @@ namespace ImageEditing
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-                lastPoint = e.Location;
-
-                isMouseDown = true;
+             
             
-            //if (smatita == true)
-            //{
-            //    tmatita.Start();
-            //}
-
-            //if (sgomma == true)
-            //{
-            //    tgomma.Start();
-            //}
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
            
-                if (isMouseDown == true)
-
-                {
-
-                    if (lastPoint != null)
-
-                    {
-
-                        if (pictureBox1.Image == null)
-
-                        {
-
-                            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-
-                            pictureBox1.Image = bmp;
-
-                        }
-
-                        using (Graphics g = Graphics.FromImage(pictureBox1.Image))
-
-                        {
-
-                            g.DrawLine(new Pen(Color.FromArgb(R, G, B), int.Parse(textBox10.Text)), lastPoint, e.Location);
-                            //g.SmoothingMode = SmoothingMode.AntiAliasing;
-
-                        }
-
-                        pictureBox1.Invalidate();
-
-                        lastPoint = e.Location;
-
-                    }
-
-                }
+               
             
         }
 
@@ -909,8 +869,203 @@ namespace ImageEditing
         }
         int px, py, rectW, rectH;
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Brushes colore = default;
+            if (pictureBox3.BorderStyle == default && pictureBox4.BorderStyle == default && pictureBox5.BorderStyle == default && pictureBox6.BorderStyle == default && pictureBox7.BorderStyle == default && pictureBox8.BorderStyle == default)
+                {
+                    MessageBox.Show("Selezionare Colore");
+                    return;
+                }
 
-        public Pen pen = new Pen(Color.White);
+            if (pictureBox3.BorderStyle == BorderStyle.FixedSingle)
+            {
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    using (Font myFont = new Font("Arial", 21))
+                    {
+                        g.DrawString(textBox5.Text, DefaultFont, Brushes.Red, new PointF(int.Parse(textBox6.Text), int.Parse(textBox11.Text)));
+                    }
+                    pictureBox1.Invalidate();
+                    g.Dispose();
+                }
+            }
+
+            if (pictureBox4.BorderStyle == BorderStyle.FixedSingle)
+            {
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    using (Font myFont = new Font("Arial", 21))
+                    {
+                        g.DrawString(textBox5.Text, DefaultFont, Brushes.Black, new PointF(int.Parse(textBox6.Text), int.Parse(textBox11.Text)));
+                    }
+                    pictureBox1.Invalidate();
+                    g.Dispose();
+                }
+            }
+            if (pictureBox5.BorderStyle == BorderStyle.FixedSingle)
+            {
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    using (Font myFont = new Font("Arial", 21))
+                    {
+                        g.DrawString(textBox5.Text, DefaultFont, Brushes.Blue, new PointF(int.Parse(textBox6.Text), int.Parse(textBox11.Text)));
+                    }
+                    pictureBox1.Invalidate();
+                    g.Dispose();
+                }
+            }
+            if (pictureBox6.BorderStyle == BorderStyle.FixedSingle)
+            {
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    using (Font myFont = new Font("Arial", 21))
+                    {
+                        g.DrawString(textBox5.Text, DefaultFont, Brushes.Green, new PointF(int.Parse(textBox6.Text), int.Parse(textBox11.Text)));
+                    }
+                    pictureBox1.Invalidate();
+                    g.Dispose();
+                }
+            }
+            if (pictureBox7.BorderStyle == BorderStyle.FixedSingle)
+            {
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    using (Font myFont = new Font("Arial", 21))
+                    {
+                        g.DrawString(textBox5.Text, DefaultFont, Brushes.Pink, new PointF(int.Parse(textBox6.Text), int.Parse(textBox11.Text)));
+                    }
+                    pictureBox1.Invalidate();
+                    g.Dispose();
+                }
+            }
+            if (pictureBox8.BorderStyle == BorderStyle.FixedSingle)
+            {
+                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                {
+                    using (Font myFont = new Font("Arial", 21))
+                    {
+                        g.DrawString(textBox5.Text, DefaultFont, Brushes.Yellow, new PointF(int.Parse(textBox6.Text), int.Parse(textBox11.Text)));
+                    }
+                    pictureBox1.Invalidate();
+                    g.Dispose();
+                }
+            }
+           
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            pictureBox3.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox5.BorderStyle = default;
+            pictureBox6.BorderStyle = default;
+            pictureBox7.BorderStyle = default;
+            pictureBox4.BorderStyle = default;
+            pictureBox8.BorderStyle = default;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox3.BorderStyle = default;
+            pictureBox5.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox6.BorderStyle = default;
+            pictureBox7.BorderStyle = default;
+            pictureBox4.BorderStyle = default;
+            pictureBox8.BorderStyle = default;
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            pictureBox3.BorderStyle = default;
+            pictureBox5.BorderStyle = default;
+            pictureBox6.BorderStyle = default;
+            pictureBox7.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox4.BorderStyle = default;
+            pictureBox8.BorderStyle = default;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            pictureBox3.BorderStyle = default;
+            pictureBox5.BorderStyle = default;
+            pictureBox6.BorderStyle = default;
+            pictureBox7.BorderStyle = default;
+            pictureBox4.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox8.BorderStyle = default;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            pictureBox3.BorderStyle = default;
+            pictureBox5.BorderStyle = default;
+            pictureBox6.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox7.BorderStyle = default;
+            pictureBox4.BorderStyle = default;
+            pictureBox8.BorderStyle = default;
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            pictureBox3.BorderStyle = default;
+            pictureBox5.BorderStyle = default;
+            pictureBox6.BorderStyle = default;
+            pictureBox7.BorderStyle = default;
+            pictureBox4.BorderStyle = default;
+            pictureBox8.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            lastPoint = e.Location;
+
+            isMouseDown = true;
+        }
+
+        private void pictureBox1_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown == true)
+            {
+
+                if (lastPoint != null)
+                {
+                    if (pictureBox1.Image == null)
+                    {
+
+                        Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+
+                        pictureBox1.Image = bmp;
+
+                    }
+
+                    using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+
+                    {
+
+                        g.DrawLine(new Pen(Color.FromArgb(R, G, B), int.Parse(textBox10.Text)), lastPoint, e.Location);
+                        //g.SmoothingMode = SmoothingMode.AntiAliasing;
+                        
+                    }
+
+                    pictureBox1.Invalidate();
+
+                    lastPoint = e.Location;
+
+                }
+
+            }
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            LoadImageFromDialog();
+            nuovo = false;
+        }
+        //public Pen pen = new Pen(Color.White);
+    }
 }
 
