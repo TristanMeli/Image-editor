@@ -560,6 +560,19 @@ namespace ImageEditing
             Cursor = Cursors.Default;
             Bitmap bmp2 = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             pictureBox1.DrawToBitmap(bmp2, pictureBox1.ClientRectangle);
+
+            Bitmap img = new Bitmap(rectW, rectW);
+
+            for (int i=0; i<rectW; i++)
+            {
+                for (int y=0; y<rectH; y++)
+                {
+                    Color pxlclr = bmp2.GetPixel(px + i, py + y);
+                    img.SetPixel(i, y, pxlclr);
+                }
+            }
+            pictureBox1.Image = (Image)img;
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
         }
 
         private void button1_Click(object sender, EventArgs e)
