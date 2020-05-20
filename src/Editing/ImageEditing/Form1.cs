@@ -555,24 +555,20 @@ namespace ImageEditing
 
         private void button4_Click(object sender, EventArgs e)
         {
-            label1.Text = "Dimenzione immagine : " + rectW + "," + rectH;
-            label1.Visible = true;
-            Cursor = Cursors.Default;
-            Bitmap bmp2 = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            pictureBox1.DrawToBitmap(bmp2, pictureBox1.ClientRectangle);
-
-            Bitmap img = new Bitmap(rectW, rectW);
-
-            for (int i=0; i<rectW; i++)
-            {
-                for (int y=0; y<rectH; y++)
-                {
-                    Color pxlclr = bmp2.GetPixel(px + i, py + y);
-                    img.SetPixel(i, y, pxlclr);
-                }
-            }
-            pictureBox1.Image = (Image)img;
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            int radius = 50;
+            int x = int.Parse(textBox1.Text);
+            int y = int.Parse(textBox4.Text);
+            Bitmap tmp = new Bitmap(2 * radius, 2 * radius);
+            Graphics g = Graphics.FromImage(tmp);
+            g.TranslateTransform(tmp.Width / 2, tmp.Height / 2);
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0 - radius, 0 - radius, 2 * radius, 2 * radius);
+            Region region = new Region(path);
+            g.SetClip(region, CombineMode.Replace);
+            var dlg = new OpenFileDialog();
+            Bitmap bmp = new Bitmap(dlg.FileName);
+            g.DrawImage(bmp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius));
+            //tmp.Save()
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -818,8 +814,7 @@ namespace ImageEditing
             }
 
             if (int.Parse(textBox10.Text) < 1)
-            {
-                textBox10.Text = "1";
+            {                textBox10.Text = "1";
                 return;
             }
 
@@ -900,7 +895,6 @@ namespace ImageEditing
         {
             label17.Hide();
         }
-
         private void button5_Click_1(object sender, EventArgs e)
         {
             //if (radioButton4.Checked==false)
@@ -917,19 +911,6 @@ namespace ImageEditing
 
 
         public Pen pen = new Pen(Color.White);
-        
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
-        {
-            base.OnMouseEnter(e);
-            Cursor = Cursors.Cross;
         }
-        
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            base.OnMouseEnter(e);
-            Cursor = Cursors.Default;
-        }
-
-    }
 }
 
