@@ -753,21 +753,10 @@ namespace ImageEditing
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (radioButton4.Checked == true)
-            {
-                base.OnMouseDown(e);
-                if (e.Button == System.Windows.Forms.MouseButtons.Left)
-                {
-                    Cursor = Cursors.Cross;
-                    pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-                    px = e.X;
-                    py = e.Y;
-                }
-            }
+                lastPoint = e.Location;
 
-            lastPoint = e.Location;
-
-            isMouseDown = true;
+                isMouseDown = true;
+            
             //if (smatita == true)
             //{
             //    tmatita.Start();
@@ -781,20 +770,7 @@ namespace ImageEditing
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (radioButton4.Checked==true)
-            {
-                base.OnMouseDown(e);
-                if (e.Button == System.Windows.Forms.MouseButtons.Left)
-                {
-                    pictureBox1.Refresh();
-                    rectW = e.X - px;
-                    rectH = e.Y - py;
-                    Graphics g = pictureBox1.CreateGraphics();
-                    g.DrawRectangle(pen, px, py, rectH, rectW);
-                    g.Dispose();
-                }
-            }
-            
+           
                 if (isMouseDown == true)
 
                 {
@@ -927,15 +903,15 @@ namespace ImageEditing
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            if (radioButton4.Checked==false)
-            {
-                MessageBox.Show("selezionare il bottone per tagliare");
-                return;
-            }
-            pictureBox1.MouseDown += new MouseEventHandler(pictureBox1_MouseDown);
-            pictureBox1.MouseMove += new MouseEventHandler(pictureBox1_MouseMove);
-            pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
-            Controls.Add(pictureBox1);
+            //if (radioButton4.Checked==false)
+            //{
+            //    MessageBox.Show("selezionare il bottone per tagliare");
+            //    return;
+            //}
+            //pictureBox1.MouseDown += new MouseEventHandler(pictureBox1_MouseDown);
+            //pictureBox1.MouseMove += new MouseEventHandler(pictureBox1_MouseMove);
+            //pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
+            //Controls.Add(pictureBox1);
         }
         int px, py, rectW, rectH;
 
