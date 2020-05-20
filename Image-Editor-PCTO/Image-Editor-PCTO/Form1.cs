@@ -22,7 +22,7 @@ using System.ComponentModel;
 using Image = System.Drawing.Image;
 using System.IO;
 using System.Drawing.Imaging;
-using Image = System.Drawing.Image;
+
 
 
 
@@ -107,7 +107,6 @@ namespace Image_Editor_PCTO
 
             Image newImage = pictureBox1.Image; 
             newImage = ClassLibrary1.Class1.Taglia(x, y, a, w, newImage);
-            newImage = ClassLibrary2.Class1.Taglia(x, y, a, w, newImage);
             pictureBox1.Image = newImage;
 
         }

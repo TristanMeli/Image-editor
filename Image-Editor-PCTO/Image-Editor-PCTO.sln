@@ -5,8 +5,7 @@ VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Image-Editor-PCTO", "Image-Editor-PCTO\Image-Editor-PCTO.csproj", "{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{F8D420C5-8D26-4B85-8B81-9CC8B505383C}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{F8D420C5-8D26-4B85-8B81-9CC8B505383C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary2", "ClassLibrary2\ClassLibrary2.csproj", "{49750114-B960-4EF0-9AC9-473F79A5DB34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,10 +17,10 @@ Global
 		{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BB8BD54-BFC9-41E4-B544-35A6E6C2F8DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8D420C5-8D26-4B85-8B81-9CC8B505383C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49750114-B960-4EF0-9AC9-473F79A5DB34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49750114-B960-4EF0-9AC9-473F79A5DB34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49750114-B960-4EF0-9AC9-473F79A5DB34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49750114-B960-4EF0-9AC9-473F79A5DB34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
