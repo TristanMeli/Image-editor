@@ -93,7 +93,6 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -143,14 +142,14 @@
             // caricaImmagineToolStripMenuItem
             // 
             this.caricaImmagineToolStripMenuItem.Name = "caricaImmagineToolStripMenuItem";
-            this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
             this.caricaImmagineToolStripMenuItem.Text = "Carica";
             this.caricaImmagineToolStripMenuItem.Click += new System.EventHandler(this.caricaImmagineToolStripMenuItem_Click);
             // 
             // salvaToolStripMenuItem
             // 
             this.salvaToolStripMenuItem.Name = "salvaToolStripMenuItem";
-            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
             this.salvaToolStripMenuItem.Text = "Salva";
             this.salvaToolStripMenuItem.Click += new System.EventHandler(this.salvaToolStripMenuItem_Click);
             // 
@@ -601,7 +600,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(755, 276);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(67, 27);
             this.button1.TabIndex = 24;
@@ -612,7 +611,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(725, 160);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(77, 22);
             this.textBox1.TabIndex = 23;
@@ -693,16 +692,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(600, 327);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 75);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "Salva immagine";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -710,7 +699,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(913, 479);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -820,7 +808,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.Button button5;
     }
 }
 
