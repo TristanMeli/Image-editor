@@ -938,6 +938,13 @@ namespace ImageEditing
             Controls.Add(pictureBox1);
         }
         int px, py, rectW, rectH;
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ClearCurrentImage();
+            LoadImage();
+        }
+
         public Pen pen = new Pen(Color.White);
         
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
