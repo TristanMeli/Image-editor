@@ -87,8 +87,6 @@ namespace Image_Editor_PCTO
             System.Drawing.Image newImage = System.Drawing.Image.FromFile(dlg.FileName);
         }
 
-        
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (!(radioButton1.Checked == true || radioButton2.Checked == true || radioButton3.Checked == true))
@@ -395,8 +393,8 @@ namespace Image_Editor_PCTO
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string nome = textBox1.Text;
-            textBox2.Clear();
+            string nome = textBox5.Text;
+            textBox5.Clear();
             if (File.Exists(nome + "Png"))
             {
                 MessageBox.Show("Nome gia usato");
