@@ -915,11 +915,6 @@ namespace ImageEditing
         }
         int px, py, rectW, rectH;
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ClearCurrentImage();
-            LoadImage();
-        }
 
         public Pen pen = new Pen(Color.White);
         
