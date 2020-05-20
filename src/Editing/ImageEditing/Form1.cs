@@ -22,7 +22,6 @@ namespace ImageEditing
 {
     public partial class Form1 : Form
     {
-        Image immagine;
         int R = 0;
         int G = 0;
         int B = 0;
@@ -52,17 +51,17 @@ namespace ImageEditing
 
         void LoadImageFromDialog()
         {
-            using (OpenFileDialog imm = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "JREP|*.jpg|*.jfif|*.png" })
+            var dlg = new OpenFileDialog();
+            dlg.Title = "Scegli l'immagine";
+            dlg.Filter = "all files (*.*)|*.*";
+            if (dlg.ShowDialog() == DialogResult.OK)
             {
-                if (imm.ShowDialog() == DialogResult.OK)
+                imagePath = dlg.FileName;
+                LoadImage();
+                if (!CheckImageIntegrity())
                 {
-                    pictureBox1.Image = Image.FromFile(imm.FileName);
-
-                    if (!CheckImageIntegrity())
-                    {
-                        pictureBox1.Image = null;
-                        MessageBox.Show("L'applicazione supporta solo immagini a colori", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    pictureBox1.Image = null;
+                    MessageBox.Show("L'applicazione supporta solo immagini a colori", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
