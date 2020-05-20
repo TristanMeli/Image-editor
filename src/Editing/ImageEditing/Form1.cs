@@ -16,14 +16,13 @@ using AForge.Imaging;
 using AForge.Imaging.Filters;
 using AForge.Imaging.Textures;
 using System.ComponentModel;
-
-
-
+using Image = System.Drawing.Image;
 
 namespace ImageEditing
 {
     public partial class Form1 : Form
     {
+        Image immagine;
         private System.Drawing.Bitmap sourceImage;
         private System.Drawing.Bitmap filteredImage;
         private string imagePath = "";
@@ -50,17 +49,17 @@ namespace ImageEditing
 
         void LoadImageFromDialog()
         {
-            var dlg = new OpenFileDialog();
-            dlg.Title = "Scegli l'immagine";
-            dlg.Filter = "all files (*.*)|*.*";
-            if (dlg.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog imm = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "JREP|*.jpg|*.jfif|*.png" })
             {
-                imagePath = dlg.FileName;
-                LoadImage();
-                if( ! CheckImageIntegrity())
+                if (imm.ShowDialog() == DialogResult.OK)
                 {
-                    pictureBox1.Image = null;
-                    MessageBox.Show("L'applicazione supporta solo immagini a colori", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    pictureBox1.Image = Image.FromFile(imm.FileName);
+
+                    if (!CheckImageIntegrity())
+                    {
+                        pictureBox1.Image = null;
+                        MessageBox.Show("L'applicazione supporta solo immagini a colori", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -218,6 +217,10 @@ namespace ImageEditing
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
             Riempi.BorderStyle = BorderStyle.FixedSingle;
+            if(colorDialog1.ShowDialog() !=System.Windows.Forms.DialogResult.Cancel)
+            {
+                pictureBox1.BackColor = colorDialog1.Color;
+            }
         }
 
         // On Filters->Color filtering
@@ -618,6 +621,21 @@ namespace ImageEditing
         private void button5_Click(object sender, EventArgs e)
         {
             // salva immagine
+        }
+        Image Zooom(Image img, Size size)
+        {
+            Bitmap bmp = new Bitmap(img, img.Width + (img.Width * size.Width / 100), img.Height + (img.Height * size.Height / 100));
+            Graphics g = Graphics.FromImage(bmp);
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            return bmp;
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            if (trackBar1.Value > 0)
+            {
+                pictureBox1.Image = Zooom(immagine, new Size(trackBar1.Value, trackBar1.Value));
+            }
         }
     }
 }
