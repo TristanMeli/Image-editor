@@ -17,36 +17,46 @@ using AForge.Imaging.Filters;
 using AForge.Imaging.Textures;
 using System.ComponentModel;
 using Image = System.Drawing.Image;
+using Point = System.Drawing.Point;
+using System.Drawing.Drawing2D;
 
 namespace ImageEditing
 {
-    public partial class Form1 : Form
+    public partial class ImageEditor : Form
     {
         int R = 0;
         int G = 0;
         int B = 0;
+        bool nuovo = false;
         private System.Drawing.Bitmap sourceImage;
         private System.Drawing.Bitmap filteredImage;
         private string imagePath = "";
         Bitmap DrawArea;
+        bool smatita = false;
+        bool sgomma = false;
+
+        Point lastPoint = Point.Empty;
+
+        bool isMouseDown = new Boolean();
         //int x = 150;
 
-        public Form1()
+        public ImageEditor()
         {
             InitializeComponent();
 
-            //DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
 
-            //pictureBox1.Image = DrawArea;
-            Panel_Salva.Location = new System.Drawing.Point(371, 232);          //Graphics g;
-            //g = Graphics.FromImage(DrawArea);
-            //g.Clear(Color.Transparent);
-            //g.Dispose();
+            pictureBox1.Image = DrawArea;
+            Panel_Salva.Location = new System.Drawing.Point(371, 232);        
+            Graphics g;
+            g = Graphics.FromImage(DrawArea);
+            g.Clear(Color.Transparent);
+            g.Dispose();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            LoadImageFromDialog();
+            
         }
 
         void LoadImageFromDialog()
@@ -97,6 +107,7 @@ namespace ImageEditing
         private void caricaImmagineToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadImageFromDialog();
+            nuovo = false;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -106,6 +117,10 @@ namespace ImageEditing
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
             Riempi.BorderStyle = default;
+
+            bool sgomma = false;
+            bool smatita = true;
+
             //Graphics g;
             //g = Graphics.FromImage(DrawArea);
 
@@ -187,6 +202,9 @@ namespace ImageEditing
 
         private void Riempi_Click(object sender, EventArgs e)
         {
+            bool sgomma = true;
+            bool smatita = false;
+
             Zoom.BorderStyle = default;
             Matita.BorderStyle = default;
             Gomma.BorderStyle = BorderStyle.FixedSingle;
@@ -223,13 +241,17 @@ namespace ImageEditing
             Color sfondo = Color.FromArgb(R, G, B);
 
             pictureBox1.BackColor = sfondo;
-            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
-            pictureBox1.Image = DrawArea;
 
-            Graphics g;
-            g = Graphics.FromImage(DrawArea);
-            g.Clear(sfondo);
-            g.Dispose();
+            if (nuovo == true)
+            {
+                DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+                pictureBox1.Image = DrawArea;
+
+                Graphics g;
+                g = Graphics.FromImage(DrawArea);
+                g.Clear(sfondo);
+                g.Dispose();
+            }
         }
 
         // On Filters->Color filtering
@@ -702,6 +724,7 @@ namespace ImageEditing
 
         private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            nuovo = true;
             DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
             pictureBox1.Image = DrawArea;
 
@@ -709,6 +732,116 @@ namespace ImageEditing
             g = Graphics.FromImage(DrawArea);
             g.Clear(Color.White);
             g.Dispose();
+        }
+
+        private void tmatita_Tick(object sender, EventArgs e)
+        {
+            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            pictureBox1.Image = DrawArea;
+            Pen matita;
+
+            //Graphics g;
+            //g = Graphics.FromImage(DrawArea);
+            //g.DrawRectangle(matita, );
+            //g.Dispose();
+        }
+
+        private void tgomma_Tick(object sender, EventArgs e)
+        {
+            //gomma
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            tmatita.Stop();
+            tgomma.Stop();
+
+            isMouseDown = false;
+
+            lastPoint = Point.Empty;
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            tmatita.Stop();
+            tgomma.Stop();
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = e.Location;
+
+            isMouseDown = true;
+            //if (smatita == true)
+            //{
+            //    tmatita.Start();
+            //}
+
+            //if (sgomma == true)
+            //{
+            //    tgomma.Start();
+            //}
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown == true)
+
+            {
+
+                if (lastPoint != null)
+
+                {
+
+                    if (pictureBox1.Image == null)
+
+                    {
+                        
+                        Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+
+                        pictureBox1.Image = bmp;
+
+                    }
+
+                    using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+
+                    {
+
+                        g.DrawLine(new Pen(Color.FromArgb(R, G, B), int.Parse(textBox10.Text)), lastPoint, e.Location);
+                        //g.SmoothingMode = SmoothingMode.AntiAliasing;
+
+                    }
+
+                    pictureBox1.Invalidate();
+
+                    lastPoint = e.Location;
+
+                }
+
+            }
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox7.Text == "")
+            {
+                
+                textBox10.Text = "1";
+                return;
+            }
+
+            if (int.Parse(textBox10.Text) < 1)
+            {
+                textBox10.Text = "1";
+                return;
+            }
+
+            if (int.Parse(textBox10.Text) > 100)
+            {
+                textBox10.Text = "100";
+                return;
+            }
+           
         }
     }
 }

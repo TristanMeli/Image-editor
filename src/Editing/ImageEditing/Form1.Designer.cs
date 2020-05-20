@@ -1,6 +1,6 @@
 ﻿namespace ImageEditing
 {
-    partial class Form1
+    partial class ImageEditor
     {
         /// <summary>
         /// Variabile di progettazione necessaria.
@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageEditor));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,6 +104,10 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.Colore = new System.Windows.Forms.Label();
+            this.tmatita = new System.Windows.Forms.Timer(this.components);
+            this.tgomma = new System.Windows.Forms.Timer(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -126,6 +131,10 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // menuStrip1
             // 
@@ -138,7 +147,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1370, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -149,27 +158,27 @@
             this.caricaImmagineToolStripMenuItem,
             this.salvaToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 38);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // nuovoToolStripMenuItem
             // 
             this.nuovoToolStripMenuItem.Name = "nuovoToolStripMenuItem";
-            this.nuovoToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.nuovoToolStripMenuItem.Size = new System.Drawing.Size(221, 44);
             this.nuovoToolStripMenuItem.Text = "Nuovo";
             this.nuovoToolStripMenuItem.Click += new System.EventHandler(this.nuovoToolStripMenuItem_Click);
             // 
             // caricaImmagineToolStripMenuItem
             // 
             this.caricaImmagineToolStripMenuItem.Name = "caricaImmagineToolStripMenuItem";
-            this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.caricaImmagineToolStripMenuItem.Size = new System.Drawing.Size(221, 44);
             this.caricaImmagineToolStripMenuItem.Text = "Carica";
             this.caricaImmagineToolStripMenuItem.Click += new System.EventHandler(this.caricaImmagineToolStripMenuItem_Click);
             // 
             // salvaToolStripMenuItem
             // 
             this.salvaToolStripMenuItem.Name = "salvaToolStripMenuItem";
-            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.salvaToolStripMenuItem.Size = new System.Drawing.Size(221, 44);
             this.salvaToolStripMenuItem.Text = "Salva";
             this.salvaToolStripMenuItem.Click += new System.EventHandler(this.salvaToolStripMenuItem_Click);
             // 
@@ -427,7 +436,7 @@
             // 
             this.Matita.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Matita.Image = ((System.Drawing.Image)(resources.GetObject("Matita.Image")));
-            this.Matita.Location = new System.Drawing.Point(0, 52);
+            this.Matita.Location = new System.Drawing.Point(0, 50);
             this.Matita.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Matita.Name = "Matita";
             this.Matita.Size = new System.Drawing.Size(64, 61);
@@ -439,7 +448,7 @@
             // 
             this.Riempi.BackColor = System.Drawing.Color.White;
             this.Riempi.Image = ((System.Drawing.Image)(resources.GetObject("Riempi.Image")));
-            this.Riempi.Location = new System.Drawing.Point(52, 52);
+            this.Riempi.Location = new System.Drawing.Point(463, 50);
             this.Riempi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Riempi.Name = "Riempi";
             this.Riempi.Size = new System.Drawing.Size(64, 61);
@@ -451,7 +460,7 @@
             // 
             this.Gomma.BackColor = System.Drawing.Color.White;
             this.Gomma.Image = ((System.Drawing.Image)(resources.GetObject("Gomma.Image")));
-            this.Gomma.Location = new System.Drawing.Point(104, 52);
+            this.Gomma.Location = new System.Drawing.Point(402, 50);
             this.Gomma.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Gomma.Name = "Gomma";
             this.Gomma.Size = new System.Drawing.Size(64, 61);
@@ -463,7 +472,7 @@
             // 
             this.Testo.BackColor = System.Drawing.Color.White;
             this.Testo.Image = ((System.Drawing.Image)(resources.GetObject("Testo.Image")));
-            this.Testo.Location = new System.Drawing.Point(158, 52);
+            this.Testo.Location = new System.Drawing.Point(525, 50);
             this.Testo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Testo.Name = "Testo";
             this.Testo.Size = new System.Drawing.Size(64, 61);
@@ -476,7 +485,7 @@
             this.Zoom.BackColor = System.Drawing.Color.White;
             this.Zoom.Image = ((System.Drawing.Image)(resources.GetObject("Zoom.Image")));
             this.Zoom.InitialImage = ((System.Drawing.Image)(resources.GetObject("Zoom.InitialImage")));
-            this.Zoom.Location = new System.Drawing.Point(210, 52);
+            this.Zoom.Location = new System.Drawing.Point(588, 50);
             this.Zoom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Zoom.Name = "Zoom";
             this.Zoom.Size = new System.Drawing.Size(64, 61);
@@ -722,16 +731,16 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox2.Location = new System.Drawing.Point(297, 80);
+            this.pictureBox2.Location = new System.Drawing.Point(205, 82);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(70, 32);
+            this.pictureBox2.Size = new System.Drawing.Size(70, 29);
             this.pictureBox2.TabIndex = 30;
             this.pictureBox2.TabStop = false;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(384, 52);
+            this.label9.Location = new System.Drawing.Point(292, 54);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(27, 25);
             this.label9.TabIndex = 31;
@@ -740,7 +749,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(417, 52);
+            this.label10.Location = new System.Drawing.Point(325, 54);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(28, 25);
             this.label10.TabIndex = 32;
@@ -749,7 +758,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(451, 52);
+            this.label11.Location = new System.Drawing.Point(359, 54);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(26, 25);
             this.label11.TabIndex = 33;
@@ -758,7 +767,7 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(374, 82);
+            this.textBox7.Location = new System.Drawing.Point(282, 84);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(46, 23);
@@ -769,7 +778,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(412, 82);
+            this.textBox8.Location = new System.Drawing.Point(320, 84);
             this.textBox8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(39, 23);
@@ -780,7 +789,7 @@
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(446, 82);
+            this.textBox9.Location = new System.Drawing.Point(354, 84);
             this.textBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(40, 23);
@@ -791,19 +800,51 @@
             // Colore
             // 
             this.Colore.AutoSize = true;
-            this.Colore.Location = new System.Drawing.Point(292, 52);
+            this.Colore.Location = new System.Drawing.Point(200, 54);
             this.Colore.Name = "Colore";
             this.Colore.Size = new System.Drawing.Size(75, 25);
             this.Colore.TabIndex = 37;
             this.Colore.Text = "Colore";
             // 
-            // Form1
+            // tmatita
+            // 
+            this.tmatita.Interval = 10;
+            this.tmatita.Tick += new System.EventHandler(this.tmatita_Tick);
+            // 
+            // tgomma
+            // 
+            this.tgomma.Interval = 10;
+            this.tgomma.Tick += new System.EventHandler(this.tgomma_Tick);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(71, 54);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(125, 25);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "Dimensione";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(102, 82);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(64, 29);
+            this.textBox10.TabIndex = 39;
+            this.textBox10.Text = "2";
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            // 
+            // ImageEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1370, 748);
+            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.Colore);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
@@ -836,7 +877,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.Name = "Form1";
+            this.Name = "ImageEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -933,6 +974,10 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label Colore;
+        private System.Windows.Forms.Timer tmatita;
+        private System.Windows.Forms.Timer tgomma;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox10;
     }
 }
 
