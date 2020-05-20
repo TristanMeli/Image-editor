@@ -23,10 +23,13 @@ namespace ImageEditing
     public partial class Form1 : Form
     {
         Image immagine;
+        int R = 0;
+        int G = 0;
+        int B = 0;
         private System.Drawing.Bitmap sourceImage;
         private System.Drawing.Bitmap filteredImage;
         private string imagePath = "";
-        //Bitmap DrawArea;
+        Bitmap DrawArea;
         //int x = 150;
 
         public Form1()
@@ -165,7 +168,7 @@ namespace ImageEditing
         private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Panel_Salva.Visible = true;
-
+            Panel_Salva.BringToFront();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -636,6 +639,81 @@ namespace ImageEditing
             {
                 pictureBox1.Image = Zooom(immagine, new Size(trackBar1.Value, trackBar1.Value));
             }
+
+        private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            pictureBox1.Image = DrawArea;
+
+            Graphics g;
+            g = Graphics.FromImage(DrawArea);
+            g.Clear(Color.White);
+            g.Dispose();
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+         
+            if (textBox9.Text == "")
+            {
+                B = 0;
+                cambia_colore(R, G, B);
+                return;
+            }
+            if (int.Parse(textBox9.Text) > 255)
+            {
+                B = 255;
+                textBox9.Text = "255";
+                cambia_colore(R, G, B);
+                return;
+            }
+            B = int.Parse(textBox9.Text);
+            cambia_colore(R, G, B);
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+            if (textBox7.Text == "")
+            {
+                R = 0;
+                cambia_colore(R, G, B);
+                return;
+            }
+            if (int.Parse(textBox7.Text) > 255)
+            {
+                R = 255;
+                textBox7.Text = "255";
+                cambia_colore(R, G, B);
+                return;
+            }
+            R = int.Parse(textBox7.Text);
+            cambia_colore(R, G, B);
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+       
+            if (textBox8.Text == "")
+            {
+                G = 0;
+                cambia_colore(R, G, B);
+                return;
+            }
+            if (int.Parse(textBox8.Text) > 255)
+            {
+                G = 255;
+                textBox8.Text = "255";
+                cambia_colore(R, G, B);
+                return;
+            }
+            G = int.Parse(textBox8.Text);
+            cambia_colore(R, G, B);
+        }
+
+        private void cambia_colore(int R, int G, int B)
+        {
+            pictureBox2.BackColor = Color.FromArgb(R, G, B);
         }
     }
 }
