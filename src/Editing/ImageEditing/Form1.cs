@@ -220,10 +220,17 @@ namespace ImageEditing
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
             Riempi.BorderStyle = BorderStyle.FixedSingle;
-            if(colorDialog1.ShowDialog() !=System.Windows.Forms.DialogResult.Cancel)
-            {
-                pictureBox1.BackColor = colorDialog1.Color;
-            }
+            
+            Color sfondo = Color.FromArgb(R, G, B);
+
+            pictureBox1.BackColor = sfondo;
+            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            pictureBox1.Image = DrawArea;
+
+            Graphics g;
+            g = Graphics.FromImage(DrawArea);
+            g.Clear(sfondo);
+            g.Dispose();
         }
 
         // On Filters->Color filtering
@@ -631,49 +638,9 @@ namespace ImageEditing
             Graphics g = Graphics.FromImage(bmp);
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
             return bmp;
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            if (trackBar1.Value > 0)
-            {
-                pictureBox1.Image = Zooom(immagine, new Size(trackBar1.Value, trackBar1.Value));
-            }
-
-        private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
-            pictureBox1.Image = DrawArea;
-
-            Graphics g;
-            g = Graphics.FromImage(DrawArea);
-            g.Clear(Color.White);
-            g.Dispose();
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-         
-            if (textBox9.Text == "")
-            {
-                B = 0;
-                cambia_colore(R, G, B);
-                return;
-            }
-            if (int.Parse(textBox9.Text) > 255)
-            {
-                B = 255;
-                textBox9.Text = "255";
-                cambia_colore(R, G, B);
-                return;
-            }
-            B = int.Parse(textBox9.Text);
-            cambia_colore(R, G, B);
-        }
-
+        }        
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-
             if (textBox7.Text == "")
             {
                 R = 0;
@@ -691,9 +658,32 @@ namespace ImageEditing
             cambia_colore(R, G, B);
         }
 
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox9.Text == "")
+            {
+                B = 0;
+                cambia_colore(R, G, B);
+                return;
+            }
+            if (int.Parse(textBox9.Text) > 255)
+            {
+                B = 255;
+                textBox9.Text = "255";
+                cambia_colore(R, G, B);
+                return;
+            }
+            B = int.Parse(textBox9.Text);
+            cambia_colore(R, G, B);
+        }
+
+        private void cambia_colore(int R, int G, int B)
+        {
+            pictureBox2.BackColor = Color.FromArgb(R, G, B);
+        }
+
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
-       
             if (textBox8.Text == "")
             {
                 G = 0;
@@ -711,9 +701,15 @@ namespace ImageEditing
             cambia_colore(R, G, B);
         }
 
-        private void cambia_colore(int R, int G, int B)
+        private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pictureBox2.BackColor = Color.FromArgb(R, G, B);
+            DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
+            pictureBox1.Image = DrawArea;
+
+            Graphics g;
+            g = Graphics.FromImage(DrawArea);
+            g.Clear(Color.White);
+            g.Dispose();
         }
     }
 }
