@@ -895,9 +895,6 @@ namespace ImageEditing
         {
             label17.Hide();
         }
-
-<<<<<<< HEAD
-=======
         private void button5_Click_1(object sender, EventArgs e)
         {
             //if (radioButton4.Checked==false)
@@ -919,9 +916,6 @@ namespace ImageEditing
         }
 
         public Pen pen = new Pen(Color.White);
->>>>>>> d2da26766d4ce45975c4a034734879a212f2e4a4
-        
-
-    }
+        }
 }
 

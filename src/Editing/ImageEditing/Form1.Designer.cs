@@ -104,24 +104,18 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-<<<<<<< HEAD
-=======
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            //this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
->>>>>>> d2da26766d4ce45975c4a034734879a212f2e4a4
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            //this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
-=======
             this.button6 = new System.Windows.Forms.Button();
->>>>>>> d2da26766d4ce45975c4a034734879a212f2e4a4
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Matita)).BeginInit();
@@ -820,7 +814,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.label1);
+            //this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Location = new System.Drawing.Point(499, 100);
@@ -829,8 +823,6 @@
             this.panel1.Size = new System.Drawing.Size(391, 172);
             this.panel1.TabIndex = 43;
             // 
-<<<<<<< HEAD
-=======
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
@@ -845,14 +837,14 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 87);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 17);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "llll";
-            this.label1.Visible = false;
+            //this.label1.AutoSize = true;
+            //this.label1.Location = new System.Drawing.Point(39, 87);
+            //this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            //this.label1.Name = "label1";
+            //this.label1.Size = new System.Drawing.Size(20, 17);
+            //this.label1.TabIndex = 17;
+            //this.label1.Text = "llll";
+            //this.label1.Visible = false;
             // 
             // button5
             // 
@@ -865,7 +857,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
->>>>>>> d2da26766d4ce45975c4a034734879a212f2e4a4
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -913,7 +904,6 @@
             this.label17.Text = "Testo";
             this.label17.Visible = false;
             // 
-<<<<<<< HEAD
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(129, 18);
@@ -922,13 +912,14 @@
             this.textBox1.TabIndex = 16;
             // 
             // label1
+
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "dimensioni x:";
+            //this.label1.AutoSize = true;
+            //this.label1.Location = new System.Drawing.Point(24, 17);
+            //this.label1.Name = "label1";
+            //this.label1.Size = new System.Drawing.Size(67, 13);
+            //this.label1.TabIndex = 17;
+            //this.label1.Text = "dimensioni x:";
             // 
             // label4
             // 
@@ -945,7 +936,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(126, 20);
             this.textBox4.TabIndex = 18;
-=======
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(133, 405);
@@ -955,7 +945,6 @@
             this.button6.Text = "button6";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
->>>>>>> d2da26766d4ce45975c4a034734879a212f2e4a4
             // 
             // ImageEditor
             // 
@@ -1101,14 +1090,11 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label1;
-<<<<<<< HEAD
+        //private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-=======
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Button button6;
->>>>>>> d2da26766d4ce45975c4a034734879a212f2e4a4
     }
 }
 
