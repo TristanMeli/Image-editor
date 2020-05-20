@@ -87,29 +87,7 @@ namespace Image_Editor_PCTO
             System.Drawing.Image newImage = System.Drawing.Image.FromFile(dlg.FileName);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            float x = 0.0F;
-            float w = 0.0F;
-            float a = 0.0F;
-            float y = 0.0F;
-
-            x = float.Parse(textBox1.Text);
-
-            y = float.Parse(textBox2.Text);
-
-            a = float.Parse(textBox3.Text);
-
-            w = float.Parse(textBox4.Text);
-
-            RectangleF A = new RectangleF(x, y, w, a);
-            GraphicsUnit h = GraphicsUnit.Pixel;
-
-            Image newImage = pictureBox1.Image; 
-            newImage = ClassLibrary2.Class1.Taglia(x, y, a, w, newImage);
-            pictureBox1.Image = newImage;
-
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -473,6 +451,60 @@ namespace Image_Editor_PCTO
             Zoom.BorderStyle = BorderStyle.FixedSingle;
             Gomma.BorderStyle = default;
             Testo.BorderStyle = default;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            pictureBox1.MouseDown += new MouseEventHandler(pictureBox1_MouseDown);
+            pictureBox1.MouseMove += new MouseEventHandler(pictureBox1_MouseMove);
+            pictureBox1.MouseEnter += new EventHandler(pictureBox1_MouseEnter);
+            Controls.Add(pictureBox1);
+        }
+        int px,py, rectW, rectH;
+        public Pen pen = new Pen(Color.White);
+        private void pictureBox1_MouseDown (object sender, MouseEventArgs e )
+        {
+            base.OnMouseDown(e);
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                Cursor = Cursors.Cross;
+                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+                px = e.X;
+                py = e.Y;
+            }
+        }
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            base.OnMouseEnter(e);
+            Cursor = Cursors.Cross;
+        }
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                pictureBox1.Refresh();
+                rectW = e.X - px;
+                rectH = e.Y - py;
+                Graphics g = pictureBox1.CreateGraphics();
+                g.DrawRectangle(pen, px, py, rectH, rectW);
+                g.Dispose();
+
+            }
+        }
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            base.OnMouseEnter(e);
+            Cursor = Cursors.Default;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            label1.Text= "Dimenzione immagine : " + rectW + "," + rectH;
+            label1.Visible = true;
+            Cursor = Cursors.Default;
+            Bitmap bmp2 = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            pictureBox1.DrawToBitmap(bmp2, pictureBox1.ClientRectangle);
         }
 
         //private void pictureBox2_Click(object sender, EventArgs e)
