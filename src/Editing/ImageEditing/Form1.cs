@@ -121,6 +121,14 @@ namespace ImageEditing
             bool sgomma = false;
             bool smatita = true;
 
+            R = 0;
+            G = 0;
+            B = 0;
+
+            textBox7.Text = "0";
+            textBox8.Text = "0";
+            textBox9.Text = "0";
+
             //Graphics g;
             //g = Graphics.FromImage(DrawArea);
 
@@ -205,6 +213,13 @@ namespace ImageEditing
             bool sgomma = true;
             bool smatita = false;
 
+            R = 255;
+            G = 255;
+            B = 255;
+
+            textBox7.Text = "255";
+            textBox8.Text = "255";
+            textBox9.Text = "255";
             Zoom.BorderStyle = default;
             Matita.BorderStyle = default;
             Gomma.BorderStyle = BorderStyle.FixedSingle;
@@ -785,40 +800,42 @@ namespace ImageEditing
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isMouseDown == true)
-
-            {
-
-                if (lastPoint != null)
+            
+                if (isMouseDown == true)
 
                 {
 
-                    if (pictureBox1.Image == null)
-
-                    {
-                        
-                        Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-
-                        pictureBox1.Image = bmp;
-
-                    }
-
-                    using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                    if (lastPoint != null)
 
                     {
 
-                        g.DrawLine(new Pen(Color.FromArgb(R, G, B), int.Parse(textBox10.Text)), lastPoint, e.Location);
-                        //g.SmoothingMode = SmoothingMode.AntiAliasing;
+                        if (pictureBox1.Image == null)
+
+                        {
+
+                            Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+
+                            pictureBox1.Image = bmp;
+
+                        }
+
+                        using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+
+                        {
+
+                            g.DrawLine(new Pen(Color.FromArgb(R, G, B), int.Parse(textBox10.Text)), lastPoint, e.Location);
+                            //g.SmoothingMode = SmoothingMode.AntiAliasing;
+
+                        }
+
+                        pictureBox1.Invalidate();
+
+                        lastPoint = e.Location;
 
                     }
-
-                    pictureBox1.Invalidate();
-
-                    lastPoint = e.Location;
 
                 }
-
-            }
+            
         }
 
         private void textBox10_TextChanged(object sender, EventArgs e)
@@ -842,6 +859,76 @@ namespace ImageEditing
                 return;
             }
            
+        }
+
+        private void Matita_MouseHover(object sender, EventArgs e)
+        {
+            label13.Show();
+        }
+
+        private void Matita_MouseLeave(object sender, EventArgs e)
+        {
+            label13.Hide();
+        }
+
+        private void Riempi_MouseHover(object sender, EventArgs e)
+        {
+            label14.Show();
+        }
+
+        private void Riempi_MouseLeave(object sender, EventArgs e)
+        {
+            label14.Hide();
+        }
+
+        private void label15_MouseHover(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label15_MouseLeave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Gomma_MouseHover(object sender, EventArgs e)
+        {
+            label15.Show();
+        }
+
+        private void Gomma_MouseLeave(object sender, EventArgs e)
+        {
+            label15.Hide();
+        }
+
+        private void label16_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Zoom_MouseHover(object sender, EventArgs e)
+        {
+            label16.Show();
+        }
+
+        private void Zoom_MouseLeave(object sender, EventArgs e)
+        {
+            label16.Hide();
+        }
+
+        private void Testo_MouseHover(object sender, EventArgs e)
+        {
+            label17.Show();
+        }
+
+        private void Testo_MouseLeave(object sender, EventArgs e)
+        {
+            label17.Hide();
         }
     }
 }
