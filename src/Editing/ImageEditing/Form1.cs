@@ -581,8 +581,8 @@ namespace ImageEditing
             var dlg = new OpenFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                var smp = Bitmap.FromFile(dlg.FileName);
-                g.DrawImage(smp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius), new Rectangle(x - radius, y - radius, 2 * radius, 2 * radius), GraphicsUnit.Pixel);
+                var bitmap1 = Bitmap.FromFile(dlg.FileName);
+                g.DrawImage(bitmap1, new Rectangle(-radius, -radius, 2 * radius, 2 * radius), new Rectangle(x - radius, y - radius, 2 * radius, 2 * radius), GraphicsUnit.Pixel);
                 tmp.Save(textBox3.Text + ".Png", ImageFormat.Png);
                 MessageBox.Show("immagine tagliata");
             }
