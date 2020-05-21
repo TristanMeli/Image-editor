@@ -52,6 +52,37 @@ namespace ImageEditing
             g = Graphics.FromImage(DrawArea);
             g.Clear(Color.Transparent);
             g.Dispose();
+            this.pictureBox1.MouseWheel += pictureBox1_Mouseheel;
+        }
+
+        private void pictureBox1_Mouseheel(object sender, MouseEventArgs e)
+        {
+            if (pictureBox1.Height < 100)
+            {
+                MessageBox.Show("minimo zoom raggiunto(non puoi rimpicciolirlo maggiormente)");
+                pictureBox1.Height = pictureBox1.Height + 20;
+                pictureBox1.Width = pictureBox1.Width + 20;
+
+                return;
+            }
+            if (pictureBox1.Width > 700)
+            {
+                MessageBox.Show("massimo zoom raggiunto(non puoi ringrandirlo maggiormente)");
+                pictureBox1.Width = pictureBox1.Width - 20;
+                pictureBox1.Width = pictureBox1.Width - 20;
+                return;
+            }
+
+            if (e.Delta > 0)
+            {
+                pictureBox1.Width = pictureBox1.Width + 20;
+                pictureBox1.Height = pictureBox1.Height + 20;
+            }
+            else
+            {
+                pictureBox1.Width = pictureBox1.Width - 20;
+                pictureBox1.Height = pictureBox1.Height - 20;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
