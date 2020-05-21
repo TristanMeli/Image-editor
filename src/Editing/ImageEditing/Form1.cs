@@ -574,9 +574,8 @@ namespace ImageEditing
             path.AddEllipse(0 - radius, 0 - radius, 2 * radius, 2 * radius);
             Region region = new Region(path);
             g.SetClip(region, CombineMode.Replace);
-            var dlg = new OpenFileDialog();
-            Bitmap bmp = new Bitmap(dlg.FileName);
-            g.DrawImage(bmp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius));
+            Bitmap smp = new Bitmap(2 * x, 2 * y);
+            g.DrawImage(smp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius));
             tmp.Save(textBox3.Text + ".Png", ImageFormat.Png);
         }
 
