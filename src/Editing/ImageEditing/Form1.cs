@@ -574,17 +574,13 @@ namespace ImageEditing
             path.AddEllipse(0 - radius, 0 - radius, 2 * radius, 2 * radius);
             Region region = new Region(path);
             g.SetClip(region, CombineMode.Replace);
-            Bitmap smp = new Bitmap(2 * x, 2 * y);
-            g.DrawImage(smp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius));
-            smp.Save(textBox3.Text + ".Png", ImageFormat.Png);
-            MessageBox.Show("Immagine ritqagliata salvata con successo");
             var dlg = new OpenFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 var bitmap1 = Bitmap.FromFile(dlg.FileName);
                 g.DrawImage(bitmap1, new Rectangle(-radius, -radius, 2 * radius, 2 * radius), new Rectangle(x - radius, y - radius, 2 * radius, 2 * radius), GraphicsUnit.Pixel);
                 tmp.Save(textBox3.Text + ".Png", ImageFormat.Png);
-                MessageBox.Show("immagine tagliata");
+                MessageBox.Show("immagine ritagliata salvata con successo");
             }
             
         }
