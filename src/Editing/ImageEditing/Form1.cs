@@ -43,7 +43,7 @@ namespace ImageEditing
         public ImageEditor()
         {
             InitializeComponent();
-            this.pictureBox1.MouseWheel += PictureBox1_MouseWheel;
+
             DrawArea = new Bitmap(pictureBox1.Size.Width, pictureBox1.Size.Height);
 
             pictureBox1.Image = DrawArea;
@@ -52,37 +52,6 @@ namespace ImageEditing
             g = Graphics.FromImage(DrawArea);
             g.Clear(Color.Transparent);
             g.Dispose();
-        }
-
-        private void PictureBox1_MouseWheel(object sender, MouseEventArgs e)
-        {
-            
-                if (pictureBox1.Height < 100)
-                {
-                    MessageBox.Show("minimo zoom raggiunto(non puoi rimpicciolirlo maggiormente)");
-                    pictureBox1.Height = pictureBox1.Height + 20;
-                pictureBox1.Width = pictureBox1.Width + 20;
-
-                return;
-                }
-            if (pictureBox1.Width > 700)
-            {
-                MessageBox.Show("massimo zoom raggiunto(non puoi ringrandirlo maggiormente)");
-                pictureBox1.Width = pictureBox1.Width - 20;
-                pictureBox1.Width = pictureBox1.Width - 20;
-                return;
-            }
-
-            if (e.Delta>0)
-            {
-                pictureBox1.Width = pictureBox1.Width + 20;
-                pictureBox1.Height = pictureBox1.Height + 20;
-            }
-            else
-            {
-                pictureBox1.Width = pictureBox1.Width - 20;
-                pictureBox1.Height = pictureBox1.Height - 20;
-            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -607,7 +576,7 @@ namespace ImageEditing
             g.SetClip(region, CombineMode.Replace);
             Bitmap smp = new Bitmap(2 * x, 2 * y);
             g.DrawImage(smp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius));
-            tmp.Save(textBox3.Text + ".Png", ImageFormat.Png);
+            smp.Save(textBox3.Text + ".Png", ImageFormat.Png);
         }
 
         private void button1_Click(object sender, EventArgs e)
