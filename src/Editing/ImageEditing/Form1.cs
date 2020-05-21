@@ -577,6 +577,7 @@ namespace ImageEditing
             Bitmap smp = new Bitmap(2 * x, 2 * y);
             g.DrawImage(smp, new Rectangle(-radius, -radius, 2 * radius, 2 * radius));
             smp.Save(textBox3.Text + ".Png", ImageFormat.Png);
+            MessageBox.Show("Immagine ritqagliata salvata con successo");
         }
 
         private void button1_Click(object sender, EventArgs e)
