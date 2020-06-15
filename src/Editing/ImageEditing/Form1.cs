@@ -59,7 +59,7 @@ namespace ImageEditing
         {
             if (pictureBox1.Height < 100)
             {
-                MessageBox.Show("minimo zoom raggiunto(non puoi rimpicciolirlo maggiormente)");
+                MessageBox.Show("minimo zoom raggiunt(non puoi rimpicciolirlo maggiormente)");
                 pictureBox1.Height = pictureBox1.Height + 20;
                 pictureBox1.Width = pictureBox1.Width + 20;
 
